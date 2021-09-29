@@ -1,18 +1,18 @@
-from flask import ( 
+from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
-) 
-from werkzeug.security import generate_password_hash,check_password_hash
+)
+from werkzeug.security import generate_password_hash, check_password_hash
 #from .models import User
-from .forms import LoginForm,RegisterForm
-from flask_login import login_user, login_required,logout_user
+from .forms import LoginForm, RegisterForm
+from flask_login import login_user, login_required, logout_user
 from . import db
 
 #JRD COMMENT
 
 
-#create a blueprint
+# create a blueprint
 bp = Blueprint('auth', __name__)
-
+#
 
 # this is the hint for a login function
 # @bp.route('/login', methods=['GET', 'POST'])
