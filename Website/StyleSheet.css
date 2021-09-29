@@ -1,0 +1,78 @@
+html {
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  font-family: "Times New Roman", Times, serif;
+}
+
+img {
+  display: block;
+  max-width:100%;
+  max-height:400px;
+  width: auto;
+  height: auto;
+  opacity: 0.75;
+}
+
+img:hover {
+  opacity: 1.0;
+}
+
+.carousel-inner:hover{
+  transform: scale(1.1);
+}
+
+.image_placer:hover{
+  transform: scale(1.2);
+}
+
+
+.EnterEventTitle{
+  text-align: center;
+  align-content: center;
+}
+.generalInfoHeading{
+  font-family:Impact;
+  color:cornflowerblue;
+}
+
+.image_placer{
+  max-width: 300px;
+  width: auto;
+  height: auto;
+  max-height: 500px;
+}
+.BookingHeading{
+  text-align: center;
+  color:dimgrey;
+}
+
+.card-content{
+  align-content: center;
+}
+
+
+.iconDetails {
+
+  margin:0 2%;
+  float:left;
+  max-width: 300px;
+  width: auto;
+  height: auto;
+  max-height: 300px;
+}
+
+.text {
+  display: inline-flex;
+  float:right;
+  
+}
+.text p {
+  width:100%;
+  float:right;
+  font-size:medium;
+}
