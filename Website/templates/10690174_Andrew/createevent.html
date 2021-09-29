@@ -1,0 +1,246 @@
+<!--- Kriss Andrew - n10690174 - Assessment 2 Index page --->
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="Author" content="Kriss Andrew">
+    <meta name="Description" content="The event creation page for my IAB207 assessment 2 submission for QUT">
+    <title>Dog Days: Find Dog Events Near You!</title>
+
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- Link to custom CSS -->
+    <link rel="stylesheet" href="CSS/custom.css">
+    <!-- Icon script -->
+    <script src="https://kit.fontawesome.com/dd806304cd.js" crossorigin="anonymous"></script>
+</head>
+
+<main>
+
+    <body>
+
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-blu">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="index.html"><i class="fas fa-paw me-2"></i>Dog Days</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="createevent.html">Create Event</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="bookinghistory.html">My Bookings</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Login</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+        </header>
+
+
+        <!--Jumbotron-->
+        <div class="container">
+
+            <div class="p-5 rounded-3 bg-white ">
+                <div class="row text-center">
+
+                    <img class="col-lg-7 col-xl-8 ms-auto rounded-circle h-25" src="img/dog party 2.jpg">
+                    <div class="col-12 col-md-12 col-lg-4 col-xl-4 align-self-center">
+                        <h1 class="display-5 fw-bold">Thinking of Organizing an event?</h1>
+                        <p class="fs-4">Fill out the form below to let people know about it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container-fluid d-flex justify-content-center">
+
+            <div class="col-lg-8 mt-2 mx-2">
+
+
+                <div class="row mb-2 mt-2 d-flex justify-content-center">
+
+                    <div class="col-md-6 mb-2">
+                        <label for="eventtitle" class="form-label">Event Title</label>
+                        <input type="text" class="form-control" id="eventtitleinput" placeholder="Event Title"
+                            required="" maxlength="50">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="eventdate" class="form-label">Event Date</label>
+                        <input class="form-control text-center" type="date" id="eventdate" name="trip-start"
+                            min="2018-01-01" max="2021-12-31" required="">
+                    </div>
+
+
+                </div>
+
+                <div class="row mb-2  justify-content-center">
+
+                    <div class="col-6 col-md-3 mb-2">
+
+                        <label for="eventstart" class="form-label">Start Time</label>
+                        <input class="form-control text-center" type="time" id="eventstart" name="eventstart"
+                            min="00:00" max="23:99" required>
+                    </div>
+
+                    <div class="col-6 col-md-3 mb-2">
+                        <label for="eventend" class="form-label">End Time</label>
+                        <input class="form-control text-center" type="time" id="eventend" name="eventend" min="00:00"
+                            max="23:99" required>
+                    </div>
+
+
+                </div>
+
+                <div class="row mb-2 d-flex justify-content-center">
+
+                    <div class="col-3 col-md-2">
+                        <label for="streetno" class="form-label">Street No</label>
+                        <input type="text" class="form-control" id="streetno" placeholder="1234" required="">
+                    </div>
+
+                    <div class="col-8 col-md-4">
+                        <label for="address" class="form-label">Street Name</label>
+                        <input type="text" class="form-control" id="street" placeholder="1234 Main St" required="">
+                    </div>
+
+                    <div class="col-md-4">
+                        <label for="address" class="form-label">Suburb</label>
+                        <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
+                    </div>
+                </div>
+
+
+                <!-- Smaller details box -->
+
+                <div class="row justify-content-center">
+                    <div class="col-3 col-md-2 mb-2">
+                        <label for="eventattend" class="form-label">Max Guests</label>
+                        <input type="number" class="form-control" id="eventattend" placeholder="0" required="" min="0"
+                            max="100">
+                    </div>
+
+                    <div class="col-7 col-md-6 mb-2">
+                        <label for="formFile" class="form-label">Event Image</label>
+                        <input class="form-control" type="file" id="eventimageinput" required="">
+                    </div>
+                </div>
+
+                <!-- Radio type selection row-->
+                <div class="row mb-2">
+                    <div class="col-12 text-center">
+                        <p class="mb-3 text-center" style="font-weight: 500;">Event Type</p>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="typecheck" id="meetcheck" value="1">
+                            <label class="form-check-label" for="meetcheck">Meet-up</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="typecheck" id="showcheck" value="2">
+                            <label class="form-check-label" for="showcheck">Show</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="typecheck" id="competitioncheck"
+                                value="3">
+                            <label class="form-check-label" for="competitioncheck">Competition</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="typecheck" id="trainingcheck" value="4">
+                            <label class="form-check-label" for="trainingcheck">Training</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <p class="mb-3 text-center" style="font-weight: 500;">Event Breed</p>
+                    <div class="row justify-content-center">
+                        <div class="col-6 col-sm-5">
+                            <select class="form-select form-select-md text-center" id="breedselect">
+                                <option selected>All Breeds</option>
+                                <option value="1">Bullys</option>
+                                <option value="2">Dashunds</option>
+                                <option value="3">German Shepards</option>
+                                <option value="3">Whippets</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mb-2 justify-content-center">
+                    <div class="col-sm-10">
+                        <div class="">
+                            <label for="eventdescrip" class="form-label">Event Description</label>
+                            <textarea class="form-control" id="eventdescrip" rows="3" maxlength="350"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row d-flex justify-content-center mb-3">
+                    <button class="btn btn-outline-secondary col-6" type="button">Create Event</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer class="text-center text-lg-start bg-blu text-light">
+            <!-- Social media -->
+            <section class="d-flex justify-content-center justify-content-lg-between p-3 border-bottom">
+                <!-- Left -->
+                <div class="me-5 d-none d-lg-block">
+                    <span>Get connected with us on social networks:</span>
+                </div>
+                <!-- Left -->
+
+                <!-- Right -->
+                <div>
+                    <a href="" style="text-decoration:none;" class="me-4 text-reset">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="" style="text-decoration:none;" class="me-4 text-reset">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="" style="text-decoration:none;" class="me-4 text-reset">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+                <!-- Right -->
+            </section>
+            <!-- Social media -->
+            </div>
+
+            <!-- Copyright -->
+            <div class="text-center p-2 off-tint">
+                &copy; 2021 Copyright:
+                <a class="text-reset fw-bold" href="index.html">DogDays.com</a>
+            </div>
+            <!-- Copyright -->
+        </footer>
+        <!-- Footer -->
+
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+            crossorigin="anonymous"></script>
+
+    </body>
+
+</main>
+
+</html>
