@@ -1,8 +1,9 @@
-from flask import Blueprint
+from flask import Blueprint,render_template,url_for
 
 bp = Blueprint('main', __name__)
 
 
 @bp.route('/')
 def index():
-    return '<h1>Starter code for the assessment<h1>'
+    # print(url_for('index.html'))
+    return render_template('n10867384_Demecillo/index.html')
