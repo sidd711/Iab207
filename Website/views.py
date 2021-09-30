@@ -1,9 +1,11 @@
-from flask import Blueprint,render_template,url_for
+from flask import Blueprint, render_template, url_for
+
+from .forms import LoginForm
 
 bp = Blueprint('main', __name__)
 
 
 @bp.route('/')
 def index():
-    # print(url_for('index.html'))
-    return render_template('n10867384_Demecillo/index.html')
+    form = LoginForm()
+    return render_template('index.html', form=form)

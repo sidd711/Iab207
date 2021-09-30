@@ -1,0 +1,508 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel"
+  data-bs-interval="4000">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+      aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+      aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+      aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+
+
+      <div class="bg-overlay" style=" background-image:url(../../static/images/mic.jpg);">
+        <div class="carousel-container">
+          <h1>Welcome to Eventsy!</h1>
+          <p class="lead">quaerat error fugit hic laborum adipisci dolor explicabo esse quisquam
+            excepturi quae distinctio, harum iure</p>
+          <button type="button" class="btn btn-lg btn-outline-success">Sign up now</button>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-item">
+
+
+
+      <div class="bg-overlay" style=" background-image:url(../../static/images/party.jpg);">
+        <div class="carousel-container">
+          <h1>Explore Upcoming Artist</h1>
+          <p class="lead"> In nec diam nec tellus ultricies auctor. Aliquam at turpis non elit rutrum facilisis eu
+            quis est. Vivamus
+            non erat arcu. Etiam mauris urna, lobortis.</p>
+          <button type="button" class="btn btn-lg btn-outline-success">Browse</button>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="carousel-item">
+
+
+
+      <div class="bg-overlay" style=" background-image:url(../../static/images/perform.jpg);">
+        <div class="carousel-container">
+
+          <h1>Want to Perform?</h1>
+          <p class="lead">Etiam cursus consequat libero. In condimentum lectus non est nibh.
+            Donec molestie libero et convallis imperdiet. Fusce accumsan varius nisi.
+
+          </p>
+          <button type="button" class="btn btn-lg btn-outline-success">Be a Musican</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+
+
+
+<div class="container">
+  <div class="row py-3 mb-3">
+    <div class="jumbo-head container">
+      <h1 class="jumbotron-heading">Eventsy
+      </h1>
+      <h3>
+        <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem in nostrum magnam
+          architecto asperiores fugit et facere id, atque quos, molestiae accusantium hic deleniti. Deleniti</p>
+
+        <p>
+
+          <a href="#" class="btn btn-light my-2 btn-outline-success">Book an Event</a>
+          <a href="#" class="btn btn-light btn-outline-success my-2">Create an Event</a>
+        </p>
+
+        <hr class="index-line">
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="row justify-content-between">
+
+      <div class="drop1">
+        <div class="col-xs-6">
+
+          Events near <a class="btn btn-light btn-info btn-lg btn-outline-success dropdown-toggle" href="#"
+            role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+            Mount Gravatt
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item active" href="#">Current Location</a></li>
+            <li><a class="dropdown-item" href="#">Search Map</a></li>
+
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-xs-6">
+        <div class="drop2">
+
+
+          Sort By<a class="btn btn-light btn-info btn-lg btn-outline-success dropdown-toggle" href="#" role="button"
+            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 15px;margin: 20px;">
+            Most Popular
+          </a>
+
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li><a class="dropdown-item" href="#">Newest - Oldest</a></li>
+            <li><a class="dropdown-item" href="#">Oldest - Newest</a></li>
+            <li><a class="dropdown-item " href="#">Lowest price - Highest price</a></li>
+            <li><a class="dropdown-item" href="#">Highest price - Lowest price</a></li>
+            <li><a class="dropdown-item active" href="#">Most Popular</a></li>
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+
+          <div class="inner">
+
+            <a href="#"><img class="sal card-img-top" img src="../../static/images/folk.jpg" alt="Card image cap"></a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore quos ipsum aut
+              quis consequatur voluptatum iusto, quisquam ab at quas!</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary"
+                  onclick="window.location.href ='../n10867384_Demecillo/create.html'">
+                  View</button>
+              </div>
+              <h4><span class="badge bg-success ">BOOKED</span></h4>
+              <small class="text-muted">20 Oct 2021</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+
+          <div class="inner">
+            <a href="#">
+              <img class="sal card-img-top" img src="../../static/images/retro_pop.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi similique ullam
+              neque, quam dolorem perspiciatis deserunt fugit!</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary"
+                  onclick="window.location.href ='../n10867384_Demecillo/create.html'">
+                  View</button>
+              </div>
+              <h4><span class="badge bg-danger">SOLD OUT</span></h4>
+              <small class="text-muted">3 Aug 2022</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/rnb_night.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, autem deleniti.
+              Nulla fugit velit minima mollitia, eligendi quasi.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary" onclick="window.location.href ='create.html'">
+                  View</button>
+              </div>
+              <h4><span class="badge bg-secondary">INACTIVE</span></h4>
+              <small class="text-muted">21 Dec 2021</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/punk.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, tempore maiores! Hic
+              aspernatur sed facere at rerum pariatur consequuntur velit!</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">View</button>
+              </div>
+              <h4><span class="badge bg-warning text-dark">CANCELLED</span></h4>
+              <small class="text-muted">14 Feb 2022</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/neon.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Accusantium neque
+              necessitatibus quidem et cum nam earum facere labore?</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">View</button>
+              </div>
+              <h4> <span class="badge bg-info text-dark">UPCOMING</span></h4>
+              <small class="text-muted">22 Dec 2021</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/summer.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Earum, placeat et
+              necessitatibus at consectetur dolore dolor.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">View</button>
+              </div>
+              <h4><span class="badge bg-warning text-dark">CANCELLED</span></h4>
+              <small class="text-muted">6 Sep 2021</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/disco.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia aspernatur
+              accusamus corrupti autem quam ratione aperiam</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">View</button>
+              </div>
+              <h4> <span class="badge bg-info text-dark">UPCOMING</span></h4>
+              <small class="text-muted">3 Nov 2023</small>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/rock.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia dolorem cupiditate
+              harum obcaecati reprehenderit quaerat nulla eaque.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">View</button>
+              </div>
+              <h4><span class="badge bg-danger">SOLD OUT</span></h4>
+              <small class="text-muted">30 Apr 2022</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card mb-4 box-shadow">
+          <div class="inner">
+            <a href="#">
+
+              <img class="sal card-img-top" img src="../../static/images/jazz.jpg" alt="Card image cap">
+            </a>
+          </div>
+          <div class="card-body">
+            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vero earum eligendi
+              maxime alias? Rerum, molestiae obcaecati.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-outline-secondary">View</button>
+              </div>
+              <h4><span class="badge bg-success ">BOOKED</span></h4>
+              <small class="text-muted">10 Oct 2021</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>
+
+  <div class="See-more d-grid gap-2 col-4 mx-auto">
+    <button class="btn btn-light btn-outline-success btn-lg" type="button" data-bs-toggle="collapse"
+      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      See More
+    </button>
+
+</h2>
+
+<div class="collapse" id="collapseExample">
+
+
+
+
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 box-shadow">
+            <div class="inner">
+              <a href="#">
+
+                <img class="sal card-img-top" img src="../../static/images/see1.jpg" alt="Card image cap">
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde corrupti qui maxime
+                nesciunt itaque laborum in molestias exercitationem consequuntur?</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-secondary">View</button>
+                </div>
+                <h4><span class="badge bg-success ">BOOKED</span></h4>
+                <small class="text-muted">20 Oct 2021</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 box-shadow">
+            <div class="inner">
+              <a href="#">
+
+                <img class="sal card-img-top" img src="../../static/images/see2.jpg" alt="Card image cap">
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime nulla nam
+                distinctio tempore cupiditate, ipsum a.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-secondary">View</button>
+                </div>
+                <h4><span class="badge bg-danger">SOLD OUT</span></h4>
+                <small class="text-muted">3 Aug 2022</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 box-shadow">
+            <div class="inner">
+              <a href="#">
+
+                <img class="sal card-img-top" img src="../../static/images/see4.jpg" alt="Card image cap">
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod exercitationem eaque
+                quo pariatur earum sunt corporis autem molestias..</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-outline-secondary">View</button>
+                </div>
+                <h4><span class="badge bg-secondary">INACTIVE</span></h4>
+                <small class="text-muted">21 Dec 2021</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 box-shadow">
+            <div class="inner">
+
+              <a href="#">
+
+                <img class="sal card-img-top" img src="../../static/images/see3.png" alt="Card image cap">
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus sequi neque
+                minima ipsam quam obcaecati corrupti quas.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn  btn-outline-secondary">View</button>
+                </div>
+                <h4><span class="badge bg-warning text-dark">CANCELLED</span></h4>
+                <small class="text-muted">14 Feb 2022</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 box-shadow">
+            <div class="inner">
+              <a href="#">
+
+                <img class="sal card-img-top" img src="../../static/images/see5.jpg" alt="Card image cap">
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit a obcaecati,
+                autem debitis in officiis deleniti quas at!</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn  btn-outline-secondary">View</button>
+                </div>
+                <h4> <span class="badge bg-info text-dark">UPCOMING</span></h4>
+                <small class="text-muted">22 Dec 2021</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card mb-4 box-shadow">
+            <div class="inner">
+              <a href="#">
+
+                <img class="sal card-img-top" img src="../../static/images/see6.jpg" alt="Card image cap">
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquid eligendi, commodi
+                debitis cumque veritatis perferendis optio eos. Nobis!</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn  btn-outline-secondary">View</button>
+                </div>
+                <h4><span class="badge bg-warning text-dark">CANCELLED</span></h4>
+                <small class="text-muted">6 Sep 2021</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</main>
+
+{% endblock %}
