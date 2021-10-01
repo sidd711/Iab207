@@ -1,13 +1,10 @@
-html {
-  width: 100vw;
-}
-
 body {
   margin: 0;
   height: 100%;
   width: 100%;
   font-family: "Times New Roman", Times, serif;
 }
+
 
 img {
   display: block;
@@ -18,13 +15,6 @@ img {
   opacity: 0.75;
 }
 
-img:hover {
-  opacity: 1.0;
-}
-
-.image_placer:hover{
-  transform: scale(1.1);
-}
 
 .EnterEventTitle{
   text-align: center;
@@ -36,21 +26,30 @@ img:hover {
   color:cornflowerblue;
 }
 
-.image_placer{
-  max-width: 300px;
-  width: auto;
-  height: auto;
-  max-height: 500px;
-}
-
 .BookingHeading{
   text-align: center;
   color:dimgrey;
 }
 
+/* Card related CSS */
+
 .card-content{
   align-content: center;
 }
+
+.card-image{
+  object-fit: cover;
+  width: 85%;
+  height: auto;
+  min-height: 400px;
+}
+
+.card-image:hover{
+  transform: scale(1.1);
+  opacity: 1.0;
+}
+
+
 
 .iconDetails {
   margin:0 2%;
