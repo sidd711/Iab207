@@ -22,19 +22,15 @@ img:hover {
   opacity: 1.0;
 }
 
-.carousel-inner:hover{
+.image_placer:hover{
   transform: scale(1.1);
 }
-
-.image_placer:hover{
-  transform: scale(1.2);
-}
-
 
 .EnterEventTitle{
   text-align: center;
   align-content: center;
 }
+
 .generalInfoHeading{
   font-family:Impact;
   color:cornflowerblue;
@@ -46,6 +42,7 @@ img:hover {
   height: auto;
   max-height: 500px;
 }
+
 .BookingHeading{
   text-align: center;
   color:dimgrey;
@@ -55,9 +52,7 @@ img:hover {
   align-content: center;
 }
 
-
 .iconDetails {
-
   margin:0 2%;
   float:left;
   max-width: 300px;
