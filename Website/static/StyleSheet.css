@@ -5,6 +5,11 @@ body {
   font-family: "Times New Roman", Times, serif;
 }
 
+/* Logo size */
+.logo{
+  height: 70px;
+  width: 70px;
+}
 
 img {
   display: block;
@@ -48,7 +53,6 @@ img {
   transform: scale(1.1);
   opacity: 1.0;
 }
-
 
 
 .iconDetails {

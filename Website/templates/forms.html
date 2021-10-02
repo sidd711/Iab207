@@ -25,16 +25,15 @@
 
 
 <!-- Form rendering is simple and easy if using bootstrap -->
-<div class="container-fluid">
-    <div class="row d-flex align-content-center" style="height: 800px;">
+<div class="container-fluid" style="height: 700px;">
+    <div class="row d-flex justify-content-center" style="height: inherit;">
         <div class="col-lg-6">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-8 mx-auto">
                 <div class="page-header">
                     <h5>{{heading}}</h5>
                 </div>
-
                 {{wtf.quick_form(form)}}
-                <!-- When you have login form, then do show the user a link to register -->
+                <!-- When you have login form show the user a link to register & vice versa-->
                 {% if heading|lower == 'login' %}
                 <p>New user? <a href="{{ url_for('auth.register') }}">Click here</a> to register.</p>
                 {% elif heading|lower == 'register form' %}
@@ -45,10 +44,12 @@
         <!-- Image part 
         THIS NEEDS TO FILL THE RIGHT SIDE OF THE SCREEN SO THE PAGE IS NOT TINY
         REF https://www.eventbrite.com.au/signin/signup -->
-        <div class="col lg-6 p-0">
-            <img class="img-fluid h-100" style="height: inherit; width: inherit; object-fit: fill;"
-                src="../static/images/artist.jpg">
+        <div class="col lg-6 p-0" style="height: inherit;">
+            <div class="img-fluid" style="background-image: url(../static/images/concert-long.jpg);
+            height: inherit; background-size: cover;">
+            </div>
         </div>
+
     </div>
 
 </div>
