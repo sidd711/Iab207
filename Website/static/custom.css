@@ -4,6 +4,7 @@
     height: 100vh;
 }
 
+/* -------------------- */
 
 /* NAVBAR */
 
@@ -15,12 +16,10 @@
   
 /* end logo */
   
-
 /* END NAVBAR */
 
 /* -------------------- */
 
-/* INDEX */
 
 /* Card related CSS */
 
@@ -40,9 +39,9 @@
     opacity: 1.0;
 }
   
-/* end card css */
+/* end card */
   
-/* Dropdown menu css */
+/* Dropdown menu */
 
 .drop1
 {   
@@ -58,15 +57,14 @@
 
 /* end Dropdown menu */
 
-/* END INDEX */
 
 /* -------------------- */
 
-/* SHOW */
 
 /* Hide scrollbar */
 .noscroll::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
 
-/* END SHOW */
+
+/* -------------------- */
