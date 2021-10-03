@@ -39,7 +39,7 @@ def create_app():
     db.init_app(app)
 
     # config upload folder
-    UPLOAD_FOLDER = '/static/img'
+    UPLOAD_FOLDER = '/static/images'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     # import main bp from views
@@ -48,4 +48,8 @@ def create_app():
 
     from . import auth
     app.register_blueprint(auth.bp)
+
+    from . import event
+    app.register_blueprint(event.bp)
+
     return app

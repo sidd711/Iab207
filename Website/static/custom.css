@@ -1,69 +1,45 @@
-/*
-Some custom bg colors
-*/
-.bg-blu{
-    background-color: rgba(131, 197, 235, 0.842);
-}
+/* Combined CSS */
 
-.bg-white{
-    background-color: white;
-}
+/* Logo css */
+.logo{
+    height: 50px;
+    width: 50px;
+  }
+  
+  /* end logo css */
+  
+/* Card related CSS */
 
-/*
-Some card alterations
-*/
+.card-content{
+    align-content: center;
+  }
 
-.card{
-    height: 30rem;
-}
-
-.card-img-top {
-    width: 100%;
-    height: 50%;
+.card-image{
     object-fit: cover;
+    width: 85%;
+    height: auto;
+    min-height: 400px;
 }
 
-.off-tint{
-    background-color: rgba(0, 0, 0, 0.151)
+.card-image:hover{
+    transform: scale(1.1);
+    opacity: 1.0;
+}
+  
+/* end card css */
+  
+/* Dropdown menu css */
+
+.drop1
+{   
+    font-size: 35px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
-
-.badge {
-    display: block;
-    margin-left: auto;
+.drop2
+{
+    font-size: 20px;
 }
 
-/*
-Bolden labels of forms
-*/
-.form-label{
-    font-weight: 500;
-}
-
-
-.img-size{
-    width: 100%;
-    height: 500px;
-    object-fit: cover;
-}
-
-/*Customise how the booking row images display to maintain consistancy*/
-.booking-img{
-    object-fit: cover;
-    width: 100%;
-    height: 13rem;
-}
-
-/*Customise how the event image displays to maintain consistancy*/
-.event-img{
-    object-fit: cover;
-    width: 100%;
-    height: 150px;
-}
-
-/* The backround image for event details page*/
-.bg-image {
-    height: 40rem; 
-    background-position: center center;
-    background-repeat: no-repeat;
-}
+/* end Dropdown menu css */

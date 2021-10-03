@@ -1,9 +1,6 @@
+/* Sidds original CSS */
 
-/* Logo size */
-.logo{
-  height: 50px;
-  width: 50px;
-}
+
 
 img {
   display: block;
@@ -13,7 +10,6 @@ img {
   height: auto;
   opacity: 0.75;
 }
-
 
 .EnterEventTitle{
   text-align: center;
@@ -30,25 +26,6 @@ img {
   color:dimgrey;
 }
 
-/* Card related CSS */
-
-.card-content{
-  align-content: center;
-}
-
-.card-image{
-  object-fit: cover;
-  width: 85%;
-  height: auto;
-  min-height: 400px;
-}
-
-.card-image:hover{
-  transform: scale(1.1);
-  opacity: 1.0;
-}
-
-
 .iconDetails {
   margin:0 2%;
   float:left;
@@ -61,8 +38,8 @@ img {
 .text {
   display: inline-flex;
   float:right;
-  
 }
+
 .text p {
   width:100%;
   float:right;
