@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+
+<!-- Event area -->
+<!-- Event backround image will be responsive and will be the image of the event -->
+<div class="container-fluid d-flex flex-column justify-content-center text-center"
+    style="height: 45rem; background-image: url('../static/images/party.jpg'); background-size: cover; background-repeat: no-repeat;">
+    <div class="row d-flex justify-content-center mx-2">
+        <div class="col-lg-6 rounded-2 pt-3" style="background-color: rgba(255, 255, 255, 0.836);">
+            <div class="container">
+
+                <!-- Row containing event image and information -->
+                <div class="row d-flex justify-content-center border-bottom" style="border-top-left-radius: 15px;">
+
+                    <!-- Col containing image -->
+                    <div class="col-12 col-lg-8 m-0 p-0" style="background-color: rgba(230, 230, 250, 0);">
+                        <img class='img-size' src={{event.image}}>
+                    </div>
+
+                    <!-- Event Information col -->
+                    <div
+                        class="col-lg-4 d-flex flex-column justify-content-center text-center bg-white border-start border-end border-top">
+                        <!-- Title and host row -->
+                        <div class="row pt-2">
+                            <div class="col-12">
+                                <h3>event.title</h3>
+                                <p><b>Created by:</b> FIND A WAY TO LINK USERNAME TO EVENT HERE</p>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <p><b>Date: </b>event.date, event.starttime-event.endtime</p>
+                        </div>
+
+
+                        <div class="col-12">
+                            <p><b>Location: </b>event.streetno event.streetname, event.suburb</p>
+                        </div>
+
+
+                        <div class="col-12">
+                            <p><b>Breed: </b>event.breed</p>
+                        </div>
+
+
+                        <div class="col-12">
+                            <p><b>Event Type: </b>event.type</p>
+                        </div>
+
+                        <!-- book event button-->
+                        <div class="d-grid col-12">
+                            <button class="btn btn-outline-secondary mb-2" type="button" data-bs-toggle="modal"
+                                data-bs-target="#bookmodal">Book Event</button>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                <!-- description row -->
+                <div class="row pt-3 d-flex justify-content-center text-center bg-white border-end border-start">
+
+                    <!-- Description col -->
+                    <div class="col-lg-12 px-3">
+                        <div class="row text-center">
+                            <p>event.description</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Comments Section -->
+            <div class="container bg-white  border-end border-start border-bottom mb-2">
+                <div class="row d-flex px-2 mb-2 justify-content-center">
+
+                    <div class="container border-top border-bottom mb-2 py-2">
+                        <div class="row">
+                            <h4 class="text-center">Comments</h4>
+                        </div>
+                    </div>
+
+                    <!-- User Comments Section-->
+                    <div class="container-fluid">
+                        <!-- 
+                        {% for comment in event.comments %}
+                        <div class="row justify-content-center">
+                            <div class="col-lg-7">
+                                <div class="row">
+                                    <p><b>{{comment.user}} - </b>{{comment.date}}</p>
+                                </div>
+
+                                <p>{{comment.text}}</p>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        {% if current_user.is_authenticated %}
+                        <div class="row mb-2 justify-content-center">
+                            <div class="col-lg-7">
+                                {{wtf.quick_form(form,"/events/{0}/comment".format(event.id))}}
+                            </div>
+                        </div>
+                        {% endif %} -->
+
+                    </div>
+                </div>
+            </div>
+            <!-- Ticket Modal -->
+            <div class="modal fade" id="bookmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Book to attend event.title
+                            </h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row justify-content-center">
+                                <p class="text-center">Number of guests</p>
+                                <div class="col-4">
+                                    <select class="form-select" aria-label="Default select example">
+                                        <option selected>0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                </div>
+                                <div class="d-grid col-6">
+                                    <button type="button" class="btn btn-outline-secondary">Book</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>
+<!-- End form area -->
+
+
+
+
+
+</html>
+
+{% endblock %}

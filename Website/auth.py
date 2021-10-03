@@ -2,6 +2,8 @@ from flask import (
     Blueprint, flash, render_template, request, url_for, redirect
 )
 from werkzeug.security import generate_password_hash, check_password_hash
+
+from Website import event
 #from .models import User
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required, logout_user
@@ -27,8 +29,12 @@ def login():
 
         if u1 is None:
             error = "Incorrect user name"
+            flash(error)
+            return redirect(url_for('auth.login'))
         elif not check_password_hash(u1.password_hash, inputpass):
             error = "Incorrect password"
+            flash(error)
+            return redirect(url_for('auth.login'))
         if error is None:
             login_user(u1)
             print(

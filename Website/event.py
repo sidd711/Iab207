@@ -65,7 +65,7 @@ def create():
         db.session.add(new_event)
         db.session.commit()
         flash('Event created sucessfully.')
-        return redirect(url_for('main.index'))
+        return redirect(url_for('event.create'))
     return render_template('forms.html', form=form, heading="Create an Event")
 
 
