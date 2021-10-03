@@ -1,18 +1,32 @@
 /* Combined CSS */
 
-/* Logo css */
+.main{
+    height: 100vh;
+}
+
+
+/* NAVBAR */
+
+/* Logo */
 .logo{
     height: 50px;
     width: 50px;
-  }
+}
   
-  /* end logo css */
+/* end logo */
   
+
+/* END NAVBAR */
+
+/* -------------------- */
+
+/* INDEX */
+
 /* Card related CSS */
 
 .card-content{
     align-content: center;
-  }
+}
 
 .card-image{
     object-fit: cover;
@@ -42,4 +56,17 @@
     font-size: 20px;
 }
 
-/* end Dropdown menu css */
+/* end Dropdown menu */
+
+/* END INDEX */
+
+/* -------------------- */
+
+/* SHOW */
+
+/* Hide scrollbar */
+.noscroll::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+/* END SHOW */

@@ -10,11 +10,17 @@ bp = Blueprint('event', __name__, url_prefix='/events')
 
 
 # we need to find a way to feed info from the index button selected to this page to load the appropriate page
+# @bp.route('/<id>', methods=["GET", "POST"])
+# def show(id):
+#     cform = CommentForm()
+#     event = Event.query.filter_by(id=id).first()
+#     return render_template('events/show.html', event=event, form=cform)
+
 @bp.route('/<id>', methods=["GET", "POST"])
 def show(id):
     cform = CommentForm()
     event = Event.query.filter_by(id=id).first()
-    return render_template('events/show.html', event=event, form=cform)
+    return render_template('event/show.html', event=event, form=cform)
 
 
 @bp.route('/<event>/comment', methods=['GET', 'POST'])
