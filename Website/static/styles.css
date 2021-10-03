@@ -1,64 +1,10 @@
-:root {
-    --jumbotron-padding-y: 3rem;
-  }
-  
-  .jumbotron {
-    padding-top: var(--jumbotron-padding-y);
-    padding-bottom: var(--jumbotron-padding-y);
-    margin-bottom: 0;
-    background-color: #fff;
-  }
-  @media (min-width: 768px) {
-    .jumbotron {
-      padding-top: calc(var(--jumbotron-padding-y) * 2);
-      padding-bottom: calc(var(--jumbotron-padding-y) * 2);
-    }
-  }
-  
 
-  
-  .jumbotron p:last-child {
-    margin-bottom: 0;
-  }
-  
-  .jumbotron-heading {
-    font-weight: 300;
-  }
-  
-  .jumbotron .container {
-    max-width: 35rem;
-  }
-  
-  footer {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-  
-  footer p {
-    margin-bottom: .25rem;
-  }
-  
-  .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
+.box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
-
-
-  .navbar
-  {
-    font-size: 20px;
-  }
-
-
-  .carousel-item {
-
-    height: 35rem;
-    background: #777;
-    color: white;
-    position: relative;
-
-    background-position: center;
-    background-size: cover;
+.navbar
+{
+  font-size: 20px;
 }
-
 
 .drop1
 {
@@ -75,17 +21,11 @@
 }
 
 
-.row{
-    padding-left: 30px;
-    text-align: center;
- 
-}
-
 
 .inner{
   overflow: hidden;
-
 }
+
 .inner img{
   transition: all 2s ease;
 }
@@ -116,17 +56,18 @@
     left:0;
     right:0;
     padding-bottom: 30px;
-    padding-left: 100px;
-   
-  
 }
 
+.carousel-item {
+  height: 35rem;
+  background: #777;
+  color: white;
+}
 
 .jumbotron-heading{
   color:green;
   font-family:serif;
   font-size: 8rem;
-  
 }
 
 .jumbotron{
@@ -146,12 +87,7 @@
 
 footer{
     background:#222;
-    padding: 30px;
 }
-
-/* .copy {
-    padding-top: 30px;
-} */
 
 .smed i {
 
@@ -164,15 +100,6 @@ footer{
     height: 15rem;
 }
 
-#logo
-{
-  height: 60rem;
-  width:100rem;
-  overflow: hidden;
-
- 
-}
-
 .down{
 
   margin-top: 3rem;
@@ -181,8 +108,6 @@ footer{
 }
 
 .description{
-
-
   font-family: Arial, Helvetica, sans-serif;
   font-size: 15;
   max-width: 90rem;
@@ -229,6 +154,7 @@ footer{
   height:0;
 
   }
+
   .map-container iframe{
     margin-top: 5rem;
   left:0;
@@ -254,6 +180,7 @@ footer{
     background-size: cover;
     
   }
+
 .modal-title
 {
 font:normal;

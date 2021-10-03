@@ -94,19 +94,21 @@
 
 <main>
 
-  {% block content %}
+  <body>
+
+    {% block content %}
 
 
-  {% endblock %}
+    {% endblock %}
 
+  </body>
 
 </main>
 
-<!-- remove logo stack links ontop of copyright for neatness, reduce margin-->
 <footer>
 
-  <div class="d-flex justify-content-center text-center">
-    <div class="col-md-4 smed">
+  <div class="d-flex flex-column text-center">
+    <div class="col smed align-content-center mt-3">
       <a class="me-2" href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-square"></i></a>
       <a class="me-2" href="https://twitter.com/joerogan" target="_blank"><i class="fab fa-twitter-square"></i></a>
       <a class="me-2" href="https://www.linkedin.com/feed/" target="_blank"><i class="fab fa-linkedin"></i></a>
@@ -114,15 +116,10 @@
       <a class="me-2" href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube-square"></i></a>
     </div>
 
-    <div class="col-md-4">
-
-      <p class="text-light copy">Copyright © 2021 Eventsy</p>
-      <p class="float-right">
-        <a href="#">Back to top</a>
-      </p>
+    <div class="col">
+      <p class="text-light mb-0">Copyright © 2021 Eventsy</p>
+      <p><a href="#">Back to top</a></p>
     </div>
-  </div>
-
   </div>
 </footer>
 

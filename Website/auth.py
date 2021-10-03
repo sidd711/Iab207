@@ -34,14 +34,15 @@ def login():
             print(
                 f'Successfully logged in\nUser: {u1.name} \nID: {u1.id}')
             flash('You logged in successfully')
-            return redirect(url_for('main.index'))
+            return redirect(url_for('auth.login'))
     return render_template('forms.html', form=form,  heading='Login')
 
 
 @bp.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('main.index'))
+    flash('You have logged out')
+    return redirect(url_for('auth.login'))
 
 
 @bp.route('/register', methods=['GET', 'POST'])
