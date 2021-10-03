@@ -112,16 +112,19 @@
             </div>
 
             <!-- Ticket Modal -->
+            <!-- THE TICKED MODAL NEEDS WORK HERE USING OUTDATED CSS-->
+            <!-- TICKET PRICE MAY ALSO NEED TO BE INCLUDED -->
             <div class="modal fade" id="bookmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title text-center" id="exampleModalLabel">Book to attend event.title
+                            <h5 class="modal-title text-center" id="exampleModalLabel">Book to attend {{event.title}}
                             </h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <div class="row justify-content-center">
+                                <!-- THE OPTIONS HERE NEED TO BE LINKED TO THE EVENTS MAX GUESTS NUMBER -->
                                 <p class="text-center">Number of guests</p>
                                 <div class="col-4">
                                     <select class="form-select" aria-label="Default select example">
