@@ -77,15 +77,16 @@ def register():
                         password_hash=pwd_hash)
 
 
-        
+        #check if user exist in the database
         exists = db.session.query(User.name).filter_by(name=new_user.name).first() is not None
 
-        if not exists:
+        if not exists:      
             db.session.add(new_user)
             db.session.commit()
             flash('Account created sucessfully.')
         else:
-            flash('Account already exists, Please try again')
+            error = 'Account already exists, Please try again'
+            flash(error)
             return redirect(url_for('auth.register'))
 
         return redirect(url_for('auth.login'))
