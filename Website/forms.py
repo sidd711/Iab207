@@ -46,8 +46,6 @@ class CreateEvent(FlaskForm):
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     type = RadioField(
         "type", choices=["Meet-up", "Show", "Competition", "Training"])
-    breed = SelectField("Breed", choices=[
-                        "Bullies", "Sausos", "Pit bulls", "Dalmations"], validators=[InputRequired()])
     description = TextAreaField("Description", validators=[InputRequired()])
     submit = SubmitField("Create Event")
 

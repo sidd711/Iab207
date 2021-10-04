@@ -15,7 +15,7 @@
     <!-- ISSUE - ON SMALLER VIEWPOINTS THIS INTERSECTS THE NAVBAR AND FOOTER - THIS IS A HEIGHT ISSUE -->
     <div class="row d-flex justify-content-center mx-3 noscroll"
         style="overflow-y: scroll; margin-top: 30px; margin-bottom: 30px;">
-        <div class=" col-lg-10 rounded-2 pt-3" style="background-color: rgba(255, 255, 255, 0.836);">
+        <div class="col-10 col-xl-8 rounded-2 pt-3" style="background-color: rgba(255, 255, 255, 0.836);">
 
             <div class="container">
 
@@ -34,7 +34,7 @@
                         <div class="row pt-2">
                             <div class="col-12">
                                 <h3>{{event.title}}</h3>
-                                <p><b>Created by:</b> FIND A WAY TO LINK USERNAME TO EVENT HERE</p>
+                                <p><b>Created by:</b> {{event_owner}}</p>
                             </div>
                         </div>
 
@@ -74,6 +74,7 @@
 
 
                 <!-- Comments Section -->
+                <!-- THIS IS SLIGHTLY OFF CENTER -->
                 <div class="row bg-white  border-end border-start border-bottom mb-2">
                     <div class="row d-flex px-2 mb-2 justify-content-center">
 
@@ -90,7 +91,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
                                     <div class="row">
-                                        <p><b>{{comment.user}} - </b>{{comment.date}}</p>
+                                        <p><b>{{comment.user}} - </b>{{comment.created_at}}</p>
                                     </div>
 
                                     <p>{{comment.text}}</p>
@@ -113,7 +114,7 @@
 
             <!-- Ticket Modal -->
             <!-- THE TICKED MODAL NEEDS WORK HERE USING OUTDATED CSS-->
-            <!-- TICKET PRICE MAY ALSO NEED TO BE INCLUDED -->
+            <!-- TICKET PRICE MAY ALSO NEED TO BE INCLUDED-->
             <div class="modal fade" id="bookmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
