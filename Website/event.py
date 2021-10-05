@@ -63,8 +63,6 @@ def create():
                           image=db_file_path,
                           type=form.type.data,
                           description=form.description.data,
-                          # accociate the event with the user creating it - Probably make this username as we dont need to dynamically
-                          # display the id?
                           user=current_user.id)
         db.session.add(new_event)
         db.session.commit()

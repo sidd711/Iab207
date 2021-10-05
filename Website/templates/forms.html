@@ -9,53 +9,124 @@
 {% if heading|lower != "create an event" %}
 <div class="container-fluid d-flex flex-column justify-content-center text-center"
     style="height: 100vh; background-image: url('../static/images/party.jpg'); background-size: cover; background-repeat: no-repeat;">
-    {% elif heading|lower == "create an event" %}
-    <div class="container-fluid d-flex flex-column justify-content-center text-center"
-        style="height: 70rem; background-image: url('../static/images/artist.jpg'); background-size: cover; background-repeat: no-repeat;">
-        {% endif %}
-        <div class="row d-flex justify-content-center mx-2">
-            <div class="col-sm-7 col-md-6 col-lg-4 rounded-2 pt-3"
-                style="background-color: rgba(255, 255, 255, 0.836);">
-                <!-- flashes any messages to the user -->
-                {% with messages = get_flashed_messages() %}
-                {% if messages %}
-                <!-- check if there are any messages -->
-                <div class="row mt-3 mb-3">
-                    <div class="col-12">
-                        {% for message in messages %}
-                        <!--loop through the messages-->
-                        <div class="alert alert-success">{{ message }}</div>
-                        <!--display as alert-->
-                        {% endfor %}
-                    </div>
-                </div>
-                {% endif %}
-                {% endwith %}
+    <div class="row d-flex justify-content-center mx-2">
+        <div class="col-sm-7 col-md-6 col-lg-4 rounded-2 pt-3" style="background-color: rgba(255, 255, 255, 0.836);">
+
+            <!-- Alternative row sizing for create form-->
+            {% elif heading|lower == "create an event" %}
+            <div class="container-fluid d-flex flex-column justify-content-center text-center"
+                style="height: 70rem; background-image: url('../static/images/artist.jpg'); background-size: cover; background-repeat: no-repeat;">
+                <div class="row d-flex justify-content-center mx-2">
+                    <div class="col-sm-7 col-md-6 col-lg-6 rounded-2 pt-3"
+                        style="background-color: rgba(255, 255, 255, 0.836);">
+                        {% endif %}
+
+                        <!-- flashes any messages to the user -->
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        <!-- check if there are any messages -->
+                        <div class="row mt-3 mb-3">
+                            <div class="col-12">
+                                {% for message in messages %}
+                                <!--loop through the messages-->
+                                <div class="alert alert-success">{{ message }}</div>
+                                <!--display as alert-->
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endwith %}
 
 
-                <div class="col mx-auto">
-                    <div class="page-header">
-                        <h5>{{heading}}</h5>
+                        <div class="col mx-auto">
+                            <div class="page-header">
+                                <h5>{{heading}}</h5>
+                            </div>
+                            <!-- If the form is not the create an event form load whatever other form was submitted-->
+                            {% if heading|lower != "create an event" %}
+                            {{wtf.quick_form(form)}}
+                            {% endif %}
+                            <!-- When you have login form show the user a link to register & vice versa-->
+                            {% if heading|lower == 'login' %}
+                            <p>New user? <a href="{{ url_for('auth.register') }}">Click here</a> to register.</p>
+                            {% elif heading|lower == 'register form' %}
+                            <p>Already a user? <a href="{{ url_for('auth.login') }}">Click here</a> to log in.</p>
+                            {% elif heading|lower == "create an event" %}
+                            <form class="d-flex flex-column justify-content-center" method="POST"
+                                action="{{ url_for('event.create') }}" enctype="multipart/form-data">
+                                {{form.csrf_token}}
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-2">
+                                        <label for="title">Title</label>
+                                        {{form.title(class_="myform")}}
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="date">Date</label>
+                                        {{form.date(class_="myform")}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-2">
+                                        <label for="title">Start Time</label>
+                                        {{form.starttime(class_="myform")}}
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="date">End Time</label>
+                                        {{form.endtime(class_="myform")}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-2">
+                                        <label for="title">Street No</label>
+                                        {{form.streetno(class_="myform")}}
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="date">Street Name</label>
+                                        {{form.streetname(class_="myform")}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-2">
+                                        <label for="title">Suburb</label>
+                                        {{form.suburb(class_="myform")}}
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="date">Max Guests</label>
+                                        {{form.maxguests(class_="myform")}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 col-md-6 mb-2">
+                                        <label for="title">Image</label>
+                                        {{form.image(class_="myform")}}
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label for="date">Type</label>
+                                        {{form.type(class_="myform")}}
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 mb-2">
+                                        <label for="title">Description</label>
+                                        {{form.description(class_="myform")}}
+                                    </div>
+                                </div>
+                                <input class="btn btn-outline-secondary mb-2" type="submit" value="Submit">
+                            </form>
+                            {% endif %}
+
+                        </div>
                     </div>
-                    {{wtf.quick_form(form)}}
-                    <!-- When you have login form show the user a link to register & vice versa-->
-                    {% if heading|lower == 'login' %}
-                    <p>New user? <a href="{{ url_for('auth.register') }}">Click here</a> to register.</p>
-                    {% elif heading|lower == 'register form' %}
-                    <p>Already a user? <a href="{{ url_for('auth.login') }}">Click here</a> to log in.</p>
-                    {% endif %}
+
                 </div>
             </div>
-
         </div>
-    </div>
-</div>
-<!-- End form area -->
+        <!-- End form area -->
 
 
 
 
 
-</html>
+        </html>
 
-{% endblock %}
+        {% endblock %}
