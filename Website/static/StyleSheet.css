@@ -1,16 +1,5 @@
 /* Sidds original CSS */
 
-
-
-img {
-  display: block;
-  max-width:100%;
-  max-height:400px;
-  width: auto;
-  height: auto;
-  opacity: 0.75;
-}
-
 .EnterEventTitle{
   text-align: center;
   align-content: center;

@@ -24,8 +24,8 @@ class Event(db.Model):
     date = db.Column(db.Date, nullable=False)
     starttime = db.Column(db.Time, nullable=False)
     endtime = db.Column(db.Time, nullable=False)
-    streetno = db.Column(db.Integer, nullable=False)
-    streetname = db.Column(db.String(80))
+    address = db.Column(db.String, nullable=False)
+    city = db.Column(db.String(80))
     suburb = db.Column(db.String(80))
     # wanna figure out how to max this
     maxguests = db.Column(db.Integer, nullable=False)

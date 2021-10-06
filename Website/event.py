@@ -9,7 +9,7 @@ from flask_login import login_required, current_user
 bp = Blueprint('event', __name__, url_prefix='/events')
 
 
-@bp.route('/<id>', methods=["GET", "POST"])
+@bp.route('/<id>/view', methods=["GET", "POST"])
 def show(id):
     cform = CommentForm()
     # create an event item accociated with the event id which is collected from the link
@@ -56,9 +56,9 @@ def create():
                           date=form.date.data,
                           starttime=form.starttime.data,
                           endtime=form.endtime.data,
-                          streetno=form.streetno.data,
-                          streetname=form.streetname.data,
+                          address=form.address.data,
                           suburb=form.suburb.data,
+                          city=form.city.data,
                           maxguests=form.maxguests.data,
                           image=db_file_path,
                           type=form.type.data,

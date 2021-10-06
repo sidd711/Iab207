@@ -34,18 +34,19 @@ class RegisterForm(FlaskForm):
 
 class CreateEvent(FlaskForm):
     title = StringField("Title", validators=[InputRequired()])
-    date = DateField("Date", format='%d-%m-%Y', validators=[InputRequired()])
+    date = DateField("Date", format='%d-%m-%Y',
+                     validators=[InputRequired()])
     starttime = TimeField("Start Time", validators=[InputRequired()])
     endtime = TimeField("End Time", validators=[InputRequired()])
-    streetno = IntegerField("Street No", validators=[InputRequired()])
-    streetname = StringField("Street Name", validators=[InputRequired()])
+    address = StringField("Address", validators=[InputRequired()])
     suburb = StringField("Suburb", validators=[InputRequired()])
+    city = StringField("City", validators=[InputRequired()])
     maxguests = IntegerField("Max Guests", validators=[InputRequired()])
     image = FileField('Event Image', validators=[
         FileRequired(message='Image cannot be empty'),
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
-    type = RadioField(
-        "type", choices=["Meet-up", "Show", "Competition", "Training"])
+    type = SelectField(
+        "type", choices=["Mixed Genre", "Pop", "Rock", "Country"])
     description = TextAreaField("Description", validators=[InputRequired()])
     submit = SubmitField("Create Event")
 

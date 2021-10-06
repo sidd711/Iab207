@@ -21,7 +21,7 @@
 /* -------------------- */
 
 
-/* Card related CSS */
+/* Cards*/
 
 .card-content{
     align-content: center;
@@ -32,6 +32,7 @@
     width: 85%;
     height: auto;
     min-height: 400px;
+    opacity: 0.75;
 }
 
 .card-image:hover{
@@ -41,7 +42,7 @@
   
 /* end card */
   
-/* Dropdown menu */
+/* Dropdown menus on index */
 
 .drop1
 {   
@@ -62,6 +63,7 @@
 
 
 /* Hide scrollbar */
+/* this is for the event viewing page - hides the ugly additional scrollbar that appears in order to scroll the event container */
 .noscroll::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
@@ -69,7 +71,25 @@
 
 /* -------------------- */
 
+/* form.html */
+
 .myform{
     border-radius: 5px;
     border-width: 1px;
 }
+
+/* Had to do some funky stuff to edit the file select button */
+input[type=file]::file-selector-button {
+    border: 1px solid #838383;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #b7b7b900;
+    transition: 0.5s;
+}
+
+input[type=file]::file-selector-button:hover {
+    color: white;
+    background-color: #838383;
+}
+
+/* end form */
