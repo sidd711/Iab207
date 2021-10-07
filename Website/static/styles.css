@@ -66,16 +66,7 @@
     padding-bottom: 20px;
 }
 
-/* Footer */
 
-footer{
-    background:#222;
-}
-
-.smed i {
-    color:white;
-    font-size: 40px;
-}
 
 .sal {
     width:15rem;
@@ -96,7 +87,7 @@ footer{
   text-align: center;
 }
 
-.head
+.nav
 {
   font-family: Arial, Helvetica, sans-serif;
   margin-top: 20px;

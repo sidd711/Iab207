@@ -63,6 +63,7 @@
 
 
 /* Hide scrollbar */
+
 /* this is for the event viewing page - hides the ugly additional scrollbar that appears in order to scroll the event container */
 .noscroll::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
@@ -93,3 +94,18 @@ input[type=file]::file-selector-button:hover {
 }
 
 /* end form */
+
+/* Footer */
+
+footer{
+    background:#222;
+}
+
+.footicons i {
+    color:white;
+    font-size: 40px;
+}
+
+
+
+/* end foot */
