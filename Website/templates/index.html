@@ -142,11 +142,13 @@
 
 <div class="container-fluid">
   <div class="row d-flex align-items-start">
-    <div class="col-sm-8 col-md-6 col-lg-3 d-block mx-auto">
+    {%for event in events %}
+    <div class="col-xl-3 col-sm-8 col-md-6 col-lg-6 d-block mx-auto">
 
       <!-- Card -->
       <div class="card shadow-lg p-3 mb-5 bg-body rounded">
         <div class="card-body">
+
 
           <!-- Event Status -->
           <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
@@ -156,7 +158,7 @@
 
           <!-- Poster -->
           <div class="d-flex justify-content-center">
-            <img class="card-image d-block mb-2" src="../static/images/rock.jpg" alt="Poster of 1st Event">
+            <img class="card-image d-block mb-2" src="{{event.image}}" alt="Poster of 1st Event">
           </div>
 
           <!-- Details -->
@@ -172,11 +174,10 @@
                 data-bs-parent="#accordion_event1">
                 <div class="accordion-body">
                   <p>
-                    <strong>Event Name: </strong> Asperiores quod <br>
-                    <strong>Venue : </strong> 20 corporis eveniet street,
-                    Voluptas<br>
-                    <strong>Date : </strong> dd/mm/yyyy<br>
-                    <a href="{{ url_for('event.show', id=1) }}"
+                    <strong>Event Name: </strong>{{event.title}}<br>
+                    <strong>Venue : </strong> {{event.address}}, {{event.city}}, {{event.suburb}}<br>
+                    <strong>Date : </strong>{{event.date}}<br>
+                    <a href="{{ url_for('event.show', id=event.id) }}"
                       class="btn btn-outline-danger d-flex align-items-center">View
                       Details
                     </a>
@@ -185,147 +186,11 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
-
-    <!-- Simialar Event 2 -->
-    <div class="col-sm-8 col-md-6 col-lg-3 mr-3 ml-3 d-block mx-auto">
-      <!-- Card -->
-      <div class="card shadow-lg p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <!-- Event Status -->
-          <span class="status position-absolute top-0 start-10 translate-middle badge rounded-pill bg-info">
-            Booked
-            <span class="visually-hidden">Event Status</span>
-          </span>
-
-          <!-- Poster -->
-          <div class="d-flex justify-content-center">
-            <img class="card-image d-block mb-2" src="../static/images/neon.jpg" alt="Poster of 1st Event">
-          </div>
-
-          <!-- Event Details -->
-          <div class="accordion" id="accordion_event2">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Info
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-                data-bs-parent="#accordion_event2">
-                <div class="accordion-body">
-                  <p>
-                    <strong>Event Name: </strong> Repellat laborum<br>
-                    <strong>Venue : </strong> 100 charming avenue , Mollitia<br>
-                    <strong>Date : </strong> dd/mm/yyyy<br>
-                    <a href="{{ url_for('event.show', id=2) }}"
-                      class="btn btn-outline-danger d-flex align-items-center">View
-                      Details
-                    </a>
-                  </p>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <!-- Simialar Event 3 -->
-    <div class="col-sm-8 col-md-6 col-lg-3 mr-3 ml-3 d-block mx-auto">
-      <!-- Card -->
-      <div class="card shadow-lg p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <!-- Event Status -->
-          <span class="status position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
-            Upcoming
-            <span class="visually-hidden">Event Status</span>
-          </span>
-
-          <!-- Event Poster -->
-          <div class="d-flex justify-content-center">
-            <img class="card-image d-block mb-2" src="../static/images/see1.jpg" alt="Poster of 1st Event">
-          </div>
-
-          <!--Event Details-->
-          <div class="accordion" id="accordion_event3">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Info
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-                data-bs-parent="#accordion_event3">
-                <div class="accordion-body">
-                  <p>
-                    <strong>Event Name: </strong> Aut vero<br>
-                    <strong>Venue : </strong> 188 quisquam rem street,
-                    Perferendis<br>
-                    <strong>Date : </strong> dd/mm/yyyy<br>
-                    <a href="{{ url_for('event.show', id=3) }}"
-                      class="btn btn-outline-danger d-flex align-items-center">View
-                      Details
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Simialar Event 4 -->
-    <div class="col-sm-8 col-md-6 col-lg-3 mr-3 ml-3 d-block mx-auto">
-      <!-- Card -->
-      <div class="card shadow-lg p-3 mb-5 bg-body rounded">
-        <div class="card-body">
-          <!-- Event Status -->
-          <span class="status position-absolute top-0 start-10 translate-middle badge rounded-pill bg-warning ">
-            Inactive
-            <span class="visually-hidden">Event Status</span>
-          </span>
-
-          <!-- Event Poster -->
-          <div class="d-flex justify-content-center">
-            <img class="card-image d-block mb-2" src="../static/images/see3.png" alt="Poster of 1st Event">
-          </div>
-
-          <!-- Event Details -->
-          <div class="accordion" id="accordion_event4">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                  data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  Info
-                </button>
-              </h2>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-                data-bs-parent="#accordion_event4">
-                <div class="accordion-body">
-                  <p>
-                    <strong>Event Name: </strong> Bereliat lumaum<br>
-                    <strong>Venue : </strong> Unit 1 slorem street, Aakeda<br>
-                    <strong>Date : </strong> dd/mm/yyyy<br>
-                    <a href="{{ url_for('event.show', id=4) }}"
-                      class="btn btn-outline-danger d-flex align-items-center">View
-                      Details
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {% endfor %}
 
   </div>
   <div class="row align-items-star justify-content-center">
@@ -407,9 +272,9 @@ Will investiage alternative options for more dynamic viewing such a pages or scr
                     Voluptas<br>
                     <strong>Date : </strong> dd/mm/yyyy<br>
                     <a href="{{ url_for('event.show', id=5) }}"
-                    class="btn btn-outline-danger d-flex align-items-center">View
-                    Details
-                  </a>
+                      class="btn btn-outline-danger d-flex align-items-center">View
+                      Details
+                    </a>
                   </p>
                 </div>
               </div>
