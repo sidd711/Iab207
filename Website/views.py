@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, flash
+from flask import Blueprint, render_template, url_for, flash,request,redirect,url_for
 from . import db
 import os
 from werkzeug.utils import redirect, secure_filename
@@ -58,3 +58,15 @@ def check_upload_file(form):
         # save the file and return the db upload path
         fp.save(upload_path)
         return db_upload_path
+
+
+@bp.route('/search')
+
+def search():
+    if request.args["search"]:
+        print(request.args['search'])
+        event_search = "%" + request.args['search'] + '%'
+        events = Event.query.filter(Event.title.like(event_search)).all()
+        return render_template('index.html', events=events)
+    else:
+        return redirect(url_for('main.index'))
