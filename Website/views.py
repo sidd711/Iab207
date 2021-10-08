@@ -35,7 +35,8 @@ def create():
                           image=db_file_path,
                           type=form.type.data,
                           description=form.description.data,
-                          user=current_user.id)
+                          user=current_user.id, status = form.status.data,
+                          description_header = form.description_header.data)
         db.session.add(new_event)
         db.session.commit()
         flash('Event created sucessfully.')

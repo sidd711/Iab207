@@ -22,6 +22,7 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     date = db.Column(db.Date, nullable=False)
+    status = db.Column(db.String(30),nullable = False, default = 'Upcoming')
     starttime = db.Column(db.Time, nullable=False)
     endtime = db.Column(db.Time, nullable=False)
     address = db.Column(db.String, nullable=False)
@@ -32,6 +33,8 @@ class Event(db.Model):
     image = db.Column(db.String(400))
     type = db.Column(db.String(80))
     description = db.Column(db.String(200))
+    description_header = db.Column(db.String(100))
+
     # ... Create the Comments db.relationship
     # relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='events')

@@ -47,7 +47,11 @@ class CreateEvent(FlaskForm):
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     type = SelectField(
         "type", choices=["Mixed Genre", "Pop", "Rock", "Country"])
-    description = TextAreaField("Description", validators=[InputRequired()])
+    description = TextAreaField("Description", validators=[InputRequired()])   
+    description_header= StringField("Description Header", validators=[InputRequired()])
+    
+
+
     submit = SubmitField("Create Event")
 
 
