@@ -109,3 +109,21 @@ footer{
 
 
 /* end foot */
+
+/* Blur stuff */
+#parent_div {
+    position: relative;
+    height: 100px;
+    width: 100px;
+}
+  
+#background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: red;
+    filter: blur(3px);
+    z-index: -1;
+}

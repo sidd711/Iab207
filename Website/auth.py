@@ -24,24 +24,14 @@ def login():
         inputpass = form.password.data
 
         u1 = User.query.filter_by(name=inputname).first()
-    
-   
-
-
         if u1 is None:
             error = "Incorrect user name"
             flash(error)
             return redirect(url_for('auth.login'))
-
-    
-
         elif not check_password_hash(u1.password_hash, inputpass):
             error = "Incorrect password"
             flash(error)
             return redirect(url_for('auth.login'))
-        
-       
-
         if error is None:
             login_user(u1)
             print(
@@ -74,11 +64,11 @@ def register():
                         emailid=email,
                         password_hash=pwd_hash)
 
+        # check if user exist in the database
+        exists = db.session.query(User.name).filter_by(
+            name=new_user.name).first() is not None
 
-        #check if user exist in the database
-        exists = db.session.query(User.name).filter_by(name=new_user.name).first() is not None
-
-        if not exists:      
+        if not exists:
             db.session.add(new_user)
             db.session.commit()
             flash('Account created sucessfully.')
@@ -88,6 +78,5 @@ def register():
             return redirect(url_for('auth.register'))
 
         return redirect(url_for('auth.login'))
-
 
     return render_template('forms.html', form=form, heading="Register Form")
