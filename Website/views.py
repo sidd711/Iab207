@@ -72,6 +72,7 @@ def search():
         print(request.args['search'])
         event_search = "%" + request.args['search'] + '%'
         events = Event.query.filter(Event.title.like(event_search)).all()
+        events += Event.query.filter(Event.description.like(event_search)).all()
         return render_template('index.html', events=events)
     else:
         return redirect(url_for('main.index'))
