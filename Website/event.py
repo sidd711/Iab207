@@ -9,6 +9,18 @@ from flask_login import login_required, current_user
 bp = Blueprint('event', __name__, url_prefix='/events')
 
 
+@bp.route('/all', methods=["GET", "POST"])
+def show_all():
+    
+    events = Event.query.all()
+
+
+    return render_template('event/show_all.html', events=events)
+
+
+
+
+
 @bp.route('/<id>', methods=["GET", "POST"])
 def show(id):
     cform = CommentForm()

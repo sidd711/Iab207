@@ -36,7 +36,9 @@
           <p class="lead"> In nec diam nec tellus ultricies auctor. Aliquam at turpis non elit rutrum facilisis eu
             quis est. Vivamus
             non erat arcu. Etiam mauris urna, lobortis.</p>
-          <button type="button" class="btn btn-lg btn-outline-success mb-2">Browse</button>
+            <a href="{{ url_for('event.show_all') }}">
+          <button type="button" class="btn btn-lg btn-outline-success mb-2">Browse all Events</button>
+        </a>
         </div>
       </div>
     </div>
@@ -155,7 +157,7 @@
           <!-- ADD FUNCTIONALITY HERE TO CHANGE THE EVENT STATUS DYNAMICALLY DEPENDANT THE EVENT STATUS OBJECT -->
           <!-- E.G. IF EVENT.STATUS == UPCOMING display the green upcoming event badge, ELIF EVENT.STATUS == BOOKED display the blue booked badge -->
           <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
-            Upcoming
+            {{event.status}}
             <span class="visually-hidden">Event Status</span>
           </span>
 

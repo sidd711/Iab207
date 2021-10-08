@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row d-flex align-items-start">
+        <h2 class="display-3 text-center mt-3">All Events</h2>
+        {% for event in events %}
+      <div class="col-xl-3 col-sm-8 col-md-6 col-lg-6 d-block py-4 mx-auto">
+  
+        <!-- Card -->
+        <div class="card shadow-lg p-3 mb-5 bg-body rounded">
+          <div class="card-body">
+  
+  
+            <!-- Event Status -->
+  
+            <!-- ADD FUNCTIONALITY HERE TO CHANGE THE EVENT STATUS DYNAMICALLY DEPENDANT THE EVENT STATUS OBJECT -->
+            <!-- E.G. IF EVENT.STATUS == UPCOMING display the green upcoming event badge, ELIF EVENT.STATUS == BOOKED display the blue booked badge -->
+            <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
+              Upcoming
+              <span class="visually-hidden">Event Status</span>
+            </span>
+  
+            <!-- Poster -->
+            <div class="d-flex justify-content-center">
+              <img class="card-image d-block mb-2" src="{{event.image}}" alt="Poster of 1st Event">
+            </div>
+  
+            <!-- Details -->
+            <div class="accordion" id="accordion_event1">
+              <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                    Info
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne"
+                  data-bs-parent="#accordion_event1">
+                  <div class="accordion-body">
+                    <p>
+                      <strong>Event Name: </strong>{{event.title}}<br>
+                      <strong>Venue : </strong> {{event.address}}, {{event.city}}, {{event.suburb}}<br>
+                      <strong>Date : </strong>{{event.date}}<br>
+                      <a href="{{ url_for('event.show', id=event.id) }}"
+                        class="btn btn-outline-danger d-flex align-items-center">View
+                        Details
+                      </a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+  
+    </div>
+
+    </html>
+
+{% endblock %}
