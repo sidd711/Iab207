@@ -126,15 +126,24 @@
                                             {{form.image}}
                                         </div>
                                     </div>
+                                    <div class="col-sm-5 mb-2">
+                                        <div class="row mx-auto">
+                                            <label for="Status">Status</label>
+                                            {{form.status(class ="myForm")}}
+                                        </div>
+                                    </div>
 
                                 </div>
-
-                                <div class="row mx-auto d-flex justify-content-center mx-auto">
-                                    <div class="col-12 mb-2">
-                                        <div class="row mx-auto">
-                                            <label for="description">Description</label>
-                                            {{form.description(class_="myform", style="height: 80px;")}}
-                                        </div>
+                                <div class="col-12 mb-2">
+                                    <div class="row mx-auto">
+                                        <label for="description">Description Header</label>
+                                        {{form.description_header(class_="myform")}}
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-2">
+                                    <div class="row mx-auto">
+                                        <label for="description">Description</label>
+                                        {{form.description(class_="myform", style="height: 80px;")}}
                                     </div>
                                 </div>
 

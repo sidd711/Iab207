@@ -26,20 +26,25 @@ def create():
     if form.validate_on_submit():
         new_event = Event(title=form.title.data,
                           date=form.date.data,
+                          status = form.status.data,
                           starttime=form.starttime.data,
                           endtime=form.endtime.data,
                           address=form.address.data,
-                          suburb=form.suburb.data,
                           city=form.city.data,
+                          suburb=form.suburb.data,
                           maxguests=form.maxguests.data,
                           image=db_file_path,
                           type=form.type.data,
                           description=form.description.data,
-                          user=current_user.id)
+                          description_header = form.description_header.data,
+                          user=current_user.id
+                          )
         db.session.add(new_event)
         db.session.commit()
         flash('Event created sucessfully.')
         return redirect(url_for('main.create'))
+    print(form.errors)
+    
     return render_template('forms.html', form=form, heading="Create an Event")
 
 
@@ -67,6 +72,7 @@ def search():
         print(request.args['search'])
         event_search = "%" + request.args['search'] + '%'
         events = Event.query.filter(Event.title.like(event_search)).all()
+        events += Event.query.filter(Event.description.like(event_search)).all()
         return render_template('index.html', events=events)
     else:
         return redirect(url_for('main.index'))
