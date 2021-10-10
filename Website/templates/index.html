@@ -156,10 +156,40 @@
 
           <!-- ADD FUNCTIONALITY HERE TO CHANGE THE EVENT STATUS DYNAMICALLY DEPENDANT THE EVENT STATUS OBJECT -->
           <!-- E.G. IF EVENT.STATUS == UPCOMING display the green upcoming event badge, ELIF EVENT.STATUS == BOOKED display the blue booked badge -->
+
+          {% if event.status == "Upcoming" %}
+
           <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
             {{event.status}}
             <span class="visually-hidden">Event Status</span>
           </span>
+
+          {% elif event.status == "Booked" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-info">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+          
+          {% elif event.status == "Cancelled" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+
+          {% elif event.status == "Fully Booked" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-warning">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+
+          {% elif event.status == "Inactive" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+
+          {% endif %}
+
 
           <!-- Poster -->
         
