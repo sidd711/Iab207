@@ -48,7 +48,7 @@ class CreateEvent(FlaskForm):
     type = SelectField(
         "type", choices=["Mixed Genre", "Pop", "Rock", "Country"])
     status = SelectField(
-        "type", choices=["Upcoming", "Inactive", "Fully Booked", "Cancelled"])
+        "type", choices=["Upcoming", "Inactive", "Fully Booked", "Cancelled"],default = "Upcoming")
     description = TextAreaField("Description", validators=[InputRequired()])   
     description_header= StringField("Description Header", validators=[InputRequired()])
     
