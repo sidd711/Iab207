@@ -69,6 +69,7 @@
                                     <div class="col-sm-6 col-md-4 mb-2">
                                         <div class="row mx-auto">
                                             <label for="email">Date</label>
+                                            <small class="text-muted">dd-mm-yyyy</small>
                                             {{form.date(class_="myform")}}
                                         </div>
                                     </div>
@@ -127,16 +128,16 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-12 mb-2">
-                                    <div class="row mx-auto">
+                                <div class="col-6 mb-2 d-flex mx-auto justify-content-center">
+                                    <div class="row mx-auto ">
                                         <label for="description">Description Header</label>
-                                        {{form.description_header(class_="myform")}}
+                                        {{form.description_header(class_="myform", style="height: 60px;")}}
                                     </div>
                                 </div>
                                 <div class="col-12 mb-2">
                                     <div class="row mx-auto">
                                         <label for="description">Description</label>
-                                        {{form.description(class_="myform", style="height: 80px;")}}
+                                        {{form.description(class_="myform", style="height: 120px;")}}
                                     </div>
                                 </div>
 

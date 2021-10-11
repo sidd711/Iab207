@@ -36,9 +36,9 @@
           <p class="lead"> In nec diam nec tellus ultricies auctor. Aliquam at turpis non elit rutrum facilisis eu
             quis est. Vivamus
             non erat arcu. Etiam mauris urna, lobortis.</p>
-            <a href="{{ url_for('event.show_all') }}">
-          <button type="button" class="btn btn-lg btn-outline-success mb-2">Browse all Events</button>
-        </a>
+          <a href="{{ url_for('event.show_all') }}">
+            <button type="button" class="btn btn-lg btn-outline-success mb-2">Browse all Events</button>
+          </a>
         </div>
       </div>
     </div>
@@ -145,7 +145,7 @@
 <div class="container-fluid">
   <div class="row d-flex align-items-start">
     {% for event in events %}
-    <div class="col-xl-3 col-sm-8 col-md-6 col-lg-6 d-block mx-auto">
+    <div class="col-12 col-xxl-3 col-xl-4 col-lg-4 col-md-6 col-sm-12 d-block mx-auto">
 
       <!-- Card -->
       <div class="card shadow-lg p-3 mb-5 bg-body rounded">
@@ -156,15 +156,47 @@
 
           <!-- ADD FUNCTIONALITY HERE TO CHANGE THE EVENT STATUS DYNAMICALLY DEPENDANT THE EVENT STATUS OBJECT -->
           <!-- E.G. IF EVENT.STATUS == UPCOMING display the green upcoming event badge, ELIF EVENT.STATUS == BOOKED display the blue booked badge -->
+
+          {% if event.status == "Upcoming" %}
+
           <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
             {{event.status}}
             <span class="visually-hidden">Event Status</span>
           </span>
 
+          {% elif event.status == "Booked" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-info">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+          
+          {% elif event.status == "Cancelled" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+
+          {% elif event.status == "Fully Booked" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-warning">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+
+          {% elif event.status == "Inactive" %}
+          <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+            {{event.status}}
+            <span class="visually-hidden">Event Status</span>
+          </span>
+
+          {% endif %}
+
+
           <!-- Poster -->
-          <div class="d-flex justify-content-center">
-            <img class="card-image d-block mb-2" src="{{event.image}}" alt="Poster of 1st Event">
-          </div>
+        
+            <div class="d-flex justify-content-center">
+              <img class="card-image d-block mb-2" src="{{event.image}}" alt="Poster of Event No. {{event.id}}">
+            </div>
+         
 
           <!-- Details -->
           <div class="accordion" id="accordion_event1">

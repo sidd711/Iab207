@@ -29,9 +29,12 @@
 
 .card-image{
     object-fit: cover;
-    width: 85%;
+    max-width: 85%;
+    min-width: 85%;
+    width: auto;
     height: auto;
     min-height: 400px;
+    max-height: 400px;
     opacity: 0.75;
 }
 
@@ -101,8 +104,10 @@ footer{
     background:#222;
 }
 
+
+
 .footicons i {
-    color:white;
+    color:rgb(113, 202, 113);
     font-size: 40px;
 }
 
@@ -126,3 +131,5 @@ footer{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+
