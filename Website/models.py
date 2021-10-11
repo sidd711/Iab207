@@ -22,7 +22,7 @@ class Event(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     date = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(30),nullable = False, default = 'Upcoming')
+    status = db.Column(db.String(30), nullable=False, default='Upcoming')
     starttime = db.Column(db.Time, nullable=False)
     endtime = db.Column(db.Time, nullable=False)
     address = db.Column(db.String, nullable=False)
@@ -51,7 +51,7 @@ class Comment(db.Model):
     text = db.Column(db.String(400))
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
-    user = db.Column(db.Integer, db.ForeignKey('users.name'))
+    user = db.Column(db.String(100), db.ForeignKey('users.name'))
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 
     def __repr__(self):

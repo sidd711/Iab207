@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, flash,request,redirect,url_for
+from flask import Blueprint, render_template, url_for, flash, request, redirect, url_for
 from . import db
 import os
 from werkzeug.utils import redirect, secure_filename
@@ -13,7 +13,7 @@ bp = Blueprint('main', __name__)
 @bp.route('/')
 def index():
     events = Event.query.all()
-    return render_template('index.html', events = events)
+    return render_template('index.html', events=events)
 
 
 @bp.route('/create', methods=["GET", "POST"])
@@ -26,7 +26,6 @@ def create():
     if form.validate_on_submit():
         new_event = Event(title=form.title.data,
                           date=form.date.data,
-                          status = form.status.data,
                           starttime=form.starttime.data,
                           endtime=form.endtime.data,
                           address=form.address.data,
@@ -36,7 +35,7 @@ def create():
                           image=db_file_path,
                           type=form.type.data,
                           description=form.description.data,
-                          description_header = form.description_header.data,
+                          description_header=form.description_header.data,
                           user=current_user.id
                           )
         db.session.add(new_event)
@@ -44,7 +43,7 @@ def create():
         flash('Event created sucessfully.')
         return redirect(url_for('main.create'))
     print(form.errors)
-    
+
     return render_template('forms.html', form=form, heading="Create an Event")
 
 
@@ -66,13 +65,13 @@ def check_upload_file(form):
 
 
 @bp.route('/search')
-
 def search():
     if request.args["search"]:
         print(request.args['search'])
         event_search = "%" + request.args['search'] + '%'
         events = Event.query.filter(Event.title.like(event_search)).all()
-        events += Event.query.filter(Event.description.like(event_search)).all()
+        events += Event.query.filter(
+            Event.description.like(event_search)).all()
         return render_template('index.html', events=events)
     else:
         return redirect(url_for('main.index'))
