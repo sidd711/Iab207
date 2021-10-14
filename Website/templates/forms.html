@@ -54,7 +54,7 @@
 
                             <!-- Alternative formatting for the larger create form -->
                             {% elif heading|lower == "create an event" %}
-                            <form method="POST" action="{{ url_for('main.create') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ url_for('event.create') }}" enctype="multipart/form-data">
                                 {{form.csrf_token}}
                                 <div class="row d-flex justify-content-center mx-auto">
                                     <div class="col-sm-7 col-lg-5 mb-2">

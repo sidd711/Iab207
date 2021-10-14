@@ -70,8 +70,10 @@ def show(id):
 
     event_user = User.query.filter_by(id=event.user).first()
     event_owner = event_user.name
+    # create a new variable that contains the event comments -is this a list? uncertain print it
+    event_comments = event.comments
 
-    return render_template('event/show.html', event=event, form=cform, event_owner=event_owner)
+    return render_template('event/show.html', event=event, form=cform, event_owner=event_owner, comment_no=5)
 
 
 @bp.route('/<event>/comment', methods=['GET', 'POST'])

@@ -77,6 +77,8 @@
                 <!-- THIS IS SLIGHTLY OFF CENTER -->
                 <!-- SOME WORK NEEDS TO BE DONE HERE -->
                 <!-- DIVISION, FORMATTING OF DATES, ADD IN NICE COMMENT HTML FROM JRS PRIOR WORK -->
+
+
                 <!-- DYNAMIC ADDITION OF SCROLL ON NO OF COMMENTS > 5 SO PAGE DOESNT GET TOO BIG -->
                 <!-- COMMENT SCROLL NEEDS SOME WORK -->
                 <div class="row bg-white  border-end border-start border-bottom mb-2">
@@ -91,7 +93,7 @@
                         <div class="row justify-content-center">
                             <div class="col-lg-7">
                                 <div class="row">
-                                    <h4><b>{{comment.user}} </b></h4>
+                                    <h4><b>{{comment.users}} </b></h4>
 
                                     <p>{{comment.text}} <br>
 
@@ -101,9 +103,11 @@
                                 </div>
                             </div>
                         </div>
-
-
                         {% endfor %}
+
+
+
+
 
                         {% if current_user.is_authenticated %}
                         <div class="row mb-2 justify-content-center">
