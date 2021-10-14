@@ -41,7 +41,7 @@ def create():
         db.session.add(new_event)
         db.session.commit()
         flash('Event created sucessfully.')
-        return redirect(url_for('main.create'))
+        return redirect(url_for('event.create'))
     return render_template('forms.html', form=form, heading="Create an Event")
 
 
@@ -68,7 +68,7 @@ def show(id):
     # create an event item accociated with the event id which is collected from the link
     event = Event.query.filter_by(id=id).first()
 
-    event_user = User.query.filter_by(id=event.user).first()
+    event_user = User.query.filter_by(id=event.users).first()
     event_owner = event_user.name
     # create a new variable that contains the event comments -is this a list? uncertain print it
     event_comments = event.comments
