@@ -34,7 +34,7 @@ class RegisterForm(FlaskForm):
 
 class CreateEvent(FlaskForm):
     title = StringField("Title", validators=[InputRequired()])
-    date = DateField("Date", format='%d-%m-%Y',
+    date = DateField("Date", format='%d/%m/%Y',
                      validators=[InputRequired()])
     starttime = TimeField("Start Time", validators=[InputRequired()])
     endtime = TimeField("End Time", validators=[InputRequired()])
