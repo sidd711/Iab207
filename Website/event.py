@@ -23,7 +23,9 @@ def create():
     form = CreateEvent()
     db_file_path = check_upload_file(form)
     # db_file_path = check_upload_file(form)
+    print(current_user.id)
     if form.validate_on_submit():
+
         new_event = Event(title=form.title.data,
                           date=form.date.data,
                           starttime=form.starttime.data,
@@ -42,7 +44,6 @@ def create():
         db.session.commit()
         flash('Event created sucessfully.')
         return redirect(url_for('event.create'))
-    print(form.date.data)
     return render_template('forms.html', form=form, heading="Create an Event")
 
 
