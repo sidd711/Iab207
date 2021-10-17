@@ -1,12 +1,13 @@
-from flask import (
-    Blueprint, flash, render_template, request, url_for, redirect
-)
+from flask import Blueprint, flash, render_template, request, url_for, redirect
+import os
+from werkzeug.utils import redirect, secure_filename
 from werkzeug.security import generate_password_hash, check_password_hash
-
 from .forms import LoginForm, RegisterForm
 from flask_login import login_user, login_required, logout_user
 from . import db
 from .models import User
+
+from .event import check_upload_file
 # JRD COMMENT
 
 
@@ -51,6 +52,8 @@ def logout():
 @bp.route('/register', methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
+    db_file_path = check_upload_file(form)
+
     if form.validate_on_submit():
         print('Register form submitted')
         uname = form.user_name.data
@@ -62,7 +65,7 @@ def register():
         # Create a new user object
         new_user = User(name=uname,
                         emailid=email,
-                        password_hash=pwd_hash)
+                        password_hash=pwd_hash,image=db_file_path)
 
         # check if user exist in the database
         exists = db.session.query(User.name).filter_by(

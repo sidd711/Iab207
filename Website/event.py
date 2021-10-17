@@ -70,7 +70,7 @@ def show(id):
     # create an event item accociated with the event id which is collected from the link
     event = Event.query.filter_by(id=id).first()
 
-    event_user = User.query.filter_by(id=event.users).first()
+    event_user = User.query.filter_by(id=event.id).first()
     event_owner = event_user.name
     # create a new variable that contains the event comments -is this a list? uncertain print it
     event_comments = event.comments

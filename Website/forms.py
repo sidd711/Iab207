@@ -28,6 +28,9 @@ class RegisterForm(FlaskForm):
     password = PasswordField("Password", validators=[InputRequired(),
                                                      EqualTo('confirm', message="Passwords should match")])
     confirm = PasswordField("Confirm Password")
+    image = FileField('Profile Picture', validators=[
+        FileRequired(message='Image cannot be empty'),
+        FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     # submit button
     submit = SubmitField("Register")
 

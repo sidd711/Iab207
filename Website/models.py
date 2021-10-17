@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
     # the storage should be at least 255 chars long
     password_hash = db.Column(db.String(255), nullable=False)
 
+    image = db.Column(db.String(400))
+
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='users')
 
@@ -41,6 +43,8 @@ class Event(db.Model):
     # add a fk to tie the currently logged in user to the even
     user = db.Column(db.Integer, db.ForeignKey('users.id'))
 
+    name = db.relationship('User', backref='events')
+
     def __repr__(self):  # string print method
         return "<Name: {}>".format(self.name)
 
@@ -52,7 +56,9 @@ class Comment(db.Model):
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
     user = db.Column(db.String(100), db.ForeignKey('users.id'))
+   
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)
