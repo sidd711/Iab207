@@ -96,6 +96,16 @@ input[type=file]::file-selector-button:hover {
     background-color: #838383;
 }
 
+.create_form{
+    float:left;
+    width:1000px;
+    overflow-y: auto;
+    max-height:700px;
+}
+
+.form-label{
+    float:left;
+}
 /* end form */
 
 /* Footer */

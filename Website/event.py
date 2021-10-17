@@ -23,11 +23,10 @@ def create():
     form = CreateEvent()
     db_file_path = check_upload_file(form)
     # db_file_path = check_upload_file(form)
-    print(current_user.id)
     if form.validate_on_submit():
-
         new_event = Event(title=form.title.data,
-                          date=form.date.data,
+                          startdate=form.startdate.data,
+                          enddate = form.enddate.data,
                           starttime=form.starttime.data,
                           endtime=form.endtime.data,
                           address=form.address.data,
@@ -38,7 +37,8 @@ def create():
                           type=form.type.data,
                           description=form.description.data,
                           description_header=form.description_header.data,
-                          user=current_user.id
+                          user=current_user.id,
+                          artist = form.artist.data
                           )
         db.session.add(new_event)
         db.session.commit()

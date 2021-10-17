@@ -23,8 +23,9 @@ class Event(db.Model):
     __tablename__ = 'events'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
-    date = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(30), nullable=False, default='Upcoming')
+    startdate = db.Column(db.Date, nullable=False)
+    enddate = db.Column(db.Date, nullable=False)
+    status = db.Column(db.String(30), nullable=False)
     starttime = db.Column(db.Time, nullable=False)
     endtime = db.Column(db.Time, nullable=False)
     address = db.Column(db.String, nullable=False)
@@ -36,7 +37,7 @@ class Event(db.Model):
     type = db.Column(db.String(80))
     description = db.Column(db.String(200))
     description_header = db.Column(db.String(100))
-
+    artist = db.Column(db.String(80), nullable=False)
     # ... Create the Comments db.relationship
     # relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='events')

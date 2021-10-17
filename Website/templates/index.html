@@ -49,12 +49,14 @@
       <div class="bg-overlay" style=" background-image:url(../static/images/perform.jpg);">
         <div class="carousel-container">
 
-          <h1>Want to Perform?</h1>
+          <h1>Want to Organise Event?</h1>
           <p class="lead">Etiam cursus consequat libero. In condimentum lectus non est nibh.
             Donec molestie libero et convallis imperdiet. Fusce accumsan varius nisi.
 
           </p>
-          <button type="button" class="btn btn-lg btn-outline-success mb-2">Be a Musican</button>
+          <a href="{{url_for('event.create')}}">
+            <button type="button" class="btn btn-lg btn-outline-success mb-2">Be an Organiser</button>
+          </a>
         </div>
       </div>
     </div>
@@ -80,19 +82,28 @@
       <h3>
         <p class="lead text-muted">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Autem in nostrum magnam
           architecto asperiores fugit et facere id, atque quos, molestiae accusantium hic deleniti. Deleniti</p>
-
-        <p>
-
-          <a href="#" class="btn btn-light my-2 btn-outline-success">Book an Event</a>
-          <a href="{{ url_for('event.create') }}" class="btn btn-light btn-outline-success my-2">Create an Event</a>
-        </p>
-
         <hr class="index-line">
     </div>
   </div>
   <!--  end Jumbotron -->
 
+  <div class ="row mb-3">
+    <div class="col col-sm-1 col-md-2 col-lg-3">
 
+    </div>
+    <div class="col col-sm-10 col-md-8 col-lg-6">
+      <form class="d-flex align-items-center"  action="{{url_for('main.search')}}">
+        <input class="form-control me-2" type="search" placeholder="Search">
+        <button class="btn btn-success btn-outline-sucess" type="submit">Go</button>
+
+      </form>
+
+    </div>
+
+    <div>
+
+    </div>
+  </div>
   <!-- Row containing search functionality + book & create event buttons -->
   <div class="row">
     <div class="row justify-content-between">
@@ -192,7 +203,7 @@
                   <div class="accordion-item">
                     <h2 class="accordion-header">
                       <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#{{event.id}}" aria-expanded="false" aria-controls="collapseOne">
+                        data-bs-target="{{event.id}}" aria-expanded="false" aria-controls="collapseOne">
                         Info
                       </button>
                     </h2>
