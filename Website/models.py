@@ -13,6 +13,8 @@ class User(db.Model, UserMixin):
     # the storage should be at least 255 chars long
     password_hash = db.Column(db.String(255), nullable=False)
 
+    image = db.Column(db.String(400))
+
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='users')
 
@@ -21,8 +23,9 @@ class Event(db.Model):
     __tablename__ = 'events'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(80), nullable=False)
-    date = db.Column(db.Date, nullable=False)
-    status = db.Column(db.String(30), nullable=False, default='Upcoming')
+    startdate = db.Column(db.Date, nullable=False)
+    enddate = db.Column(db.Date, nullable=False)
+    status = db.Column(db.String(30), nullable=False)
     starttime = db.Column(db.Time, nullable=False)
     endtime = db.Column(db.Time, nullable=False)
     address = db.Column(db.String, nullable=False)
@@ -34,12 +37,14 @@ class Event(db.Model):
     type = db.Column(db.String(80))
     description = db.Column(db.String(200))
     description_header = db.Column(db.String(100))
-
+    artist = db.Column(db.String(80), nullable=False)
     # ... Create the Comments db.relationship
     # relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='events')
     # add a fk to tie the currently logged in user to the even
     user = db.Column(db.Integer, db.ForeignKey('users.id'))
+
+    name = db.relationship('User', backref='events')
 
     def __repr__(self):  # string print method
         return "<Name: {}>".format(self.name)
@@ -52,7 +57,9 @@ class Comment(db.Model):
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
     user = db.Column(db.String(100), db.ForeignKey('users.id'))
+   
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)

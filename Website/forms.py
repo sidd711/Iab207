@@ -28,25 +28,35 @@ class RegisterForm(FlaskForm):
     password = PasswordField("Password", validators=[InputRequired(),
                                                      EqualTo('confirm', message="Passwords should match")])
     confirm = PasswordField("Confirm Password")
+    image = FileField('Profile Picture', validators=[
+        FileRequired(message='Image cannot be empty'),
+        FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     # submit button
     submit = SubmitField("Register")
 
 
 class CreateEvent(FlaskForm):
-    title = StringField("Title", validators=[InputRequired()])
-    date = DateField("Date",
+    title = StringField("Title", 
+                        validators=[InputRequired()]
+                        )
+    startdate = DateField("Date",
+                     validators=[InputRequired()])
+    enddate = DateField("Date",
                      validators=[InputRequired()])
     starttime = TimeField("Start Time", validators=[InputRequired()])
     endtime = TimeField("End Time", validators=[InputRequired()])
     address = StringField("Address", validators=[InputRequired()])
     suburb = StringField("Suburb", validators=[InputRequired()])
     city = StringField("City", validators=[InputRequired()])
+    artist = StringField("City", validators=[InputRequired()])
     maxguests = IntegerField("Max Guests", validators=[InputRequired()])
     image = FileField('Event Image', validators=[
         FileRequired(message='Image cannot be empty'),
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     type = SelectField(
         "type", choices=["Mixed Genre", "Pop", "Rock", "Country"])
+    status = SelectField(
+        "status", choices=["Upcoming", "Booked", "Cancelled", "Inactive"])
     description = TextAreaField("Description", validators=[InputRequired()])
     description_header = StringField(
         "Description Header", validators=[InputRequired()])
