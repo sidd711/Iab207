@@ -38,7 +38,8 @@
                         </div>
 
                         <div class="col-12">
-                            <p><b>Date: </b>{{event.date}}, {{event.starttime}}-{{event.endtime}}</p>
+                            <p><b>Date: </b>{{event.startdate}}-{{event.enddate}},<br><b>Time:</b>
+                                {{event.starttime}}-{{event.endtime}}</p>
                         </div>
 
 
@@ -86,92 +87,104 @@
 
                 <!-- DYNAMIC ADDITION OF SCROLL ON NO OF COMMENTS > 5 SO PAGE DOESNT GET TOO BIG -->
                 <!-- COMMENT SCROLL NEEDS SOME WORK -->
-          
-                    <div class="row bg-white border-end border-start border-bottom py-3 mb-2">
-                        <div class="col text-center d-flex px-2 mb-2 justify-content-center">
 
-
-                            <h6 class="display-5">Comments</h6>
-
-                        </div>
-                        <!-- User Comments Section-->
-                        <div class="container-fluid text-center" style="max-height: 200px; overflow-y: scroll;">
-
-                            {% for comment in event.comments %}
-                            <div class="row justify-content-center">
-                                <div class="col-lg-7">
-                                    <div class="row">
-                                        <h4><b>{{event.name }} </b></h4>
-                                        <img src="{{event.image}}"
-                            style="width: 50%; object-fit: cover;object-position: center; max-height: 100px;">
+                <div class="container mt-3 justify-content-center">
+                    <div class="col text-center d-flex px-2 mb-2 justify-content-center">
+                        <h3>Reviews</h3>
                     </div>
-                                        <p>{{comment.text}} <br>
+                    {% for comment in event.comments %}
+                    <div style="max-height: 200px; overflow-y: scroll;">
+                        <div class="media p-3 ml=2" >
+                            <div class="media-comment">
+                                <div id="media-image">
+                                    <img src="../../static/images/RAW/profile.png" alt="Jane Doe"
+                                        class="mr-3 mt-3 rounded-circle" style="width:45px;">
+                                </div>
+                                <div>
+                                    <div class = "row mb-1">
+                                        <div >
+                                            <h6 style="float:left;">{{comment.users.name }}</h6>
 
-                                            <small class="text-muted">{{comment.created_at}}</small>
-                                        </p>
-
+                                            <h6 style="float:right;"><small><i>Posted on {{comment.created_at}} </i></small></h6>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-1 media border border-secondary ">
+                                        <div class="border-bottom border-top border-end border-danger">
+                                            <p>{{comment.text}}</p>
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-
-                            {% endfor %}
-
-
-
-
-
-                            {% if current_user.is_authenticated %}
-                            <div class="row mb-2 justify-content-center">
-                                <div class="col-lg-7">
-                                    {{wtf.quick_form(form,"/events/{0}/comment".format(event.id))}}
-                                </div>
-                            </div>
-                            {% endif %}
 
                         </div>
+
                     </div>
-         
+                    {% endfor %}
+                    {% if current_user.is_authenticated %}
+                    <!-- <div class="form-group mt-3">
+                        <label for="exampleFormControlTextarea1">Leave a Review</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        
+                        <button class="btn btn-outline-danger d-flex align-items-center" type="submit">
+                            Post
+                        </button>
+                    </div> -->
+                    <div class="row mb-2 ">
+                        <div class="col">
+                            {{wtf.quick_form(form,"/events/{0}/comment".format(event.id))}}
+                            <small id="exampleFormControlTextarea1" class="form-text text-muted">
+                                Write about the event (Max 500 words)
+                            </small>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+
             </div>
-        </div>
 
-        <!-- Ticket Modal -->
-        <!-- THE TICKED MODAL NEEDS WORK HERE USING OUTDATED CSS-->
-        <!-- TICKET PRICE MAY ALSO NEED TO BE INCLUDED-->
-        <div class="modal fade" id="bookmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title text-center" id="exampleModalLabel">Book to attend
-                            {{event.title}}
-                        </h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row justify-content-center">
-                            <!-- THE OPTIONS HERE NEED TO BE LINKED TO THE EVENTS MAX GUESTS NUMBER -->
-                            <p class="text-center">Number of guests</p>
-                            <div class="col-4">
-                                <select class="form-select" aria-label="Default select example">
-                                    <option selected>0</option>
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                </select>
-                            </div>
-                            <div class="d-grid col-6">
-                                <button type="button" class="btn btn-outline-secondary">Book</button>
-                            </div>
+        </div>
+    </div>
+
+    <!-- Ticket Modal -->
+    <!-- THE TICKED MODAL NEEDS WORK HERE USING OUTDATED CSS-->
+    <!-- TICKET PRICE MAY ALSO NEED TO BE INCLUDED-->
+    <div class="modal fade" id="bookmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center" id="exampleModalLabel">Book to attend
+                        {{event.title}}
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <!-- THE OPTIONS HERE NEED TO BE LINKED TO THE EVENTS MAX GUESTS NUMBER -->
+                        <p class="text-center">Number of guests</p>
+                        <div class="col-4">
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected>0</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>
+                        </div>
+                        <div class="d-grid col-6">
+                            <button type="button" class="btn btn-outline-secondary">Book</button>
                         </div>
                     </div>
-                    <div class="modal-footer">
-                    </div>
+                </div>
+                <div class="modal-footer">
                 </div>
             </div>
         </div>
-
     </div>
+
 </div>
-</div>
+
 <!-- End form area -->
 
 

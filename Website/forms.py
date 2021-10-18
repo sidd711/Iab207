@@ -23,7 +23,7 @@ class RegisterForm(FlaskForm):
     user_name = StringField("User Name", validators=[InputRequired()])
     email_id = StringField("Email Address", validators=[
                            Email("Please enter a valid email")])
-
+    contact_no = StringField("User Name", validators=[InputRequired()])
     # linking two fields - password should be equal to data entered in confirm
     password = PasswordField("Password", validators=[InputRequired(),
                                                      EqualTo('confirm', message="Passwords should match")])
@@ -53,10 +53,8 @@ class CreateEvent(FlaskForm):
     image = FileField('Event Image', validators=[
         FileRequired(message='Image cannot be empty'),
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
-    type = SelectField(
-        "type", choices=["Mixed Genre", "Pop", "Rock", "Country"])
-    status = SelectField(
-        "status", choices=["Upcoming", "Booked", "Cancelled", "Inactive"])
+    type = SelectField( choices=["Mixed Genre", "Pop", "Rock", "Country"])
+    status = SelectField(choices=["Upcoming", "Booked", "Cancelled", "Inactive"])
     description = TextAreaField("Description", validators=[InputRequired()])
     description_header = StringField(
         "Description Header", validators=[InputRequired()])
@@ -65,5 +63,5 @@ class CreateEvent(FlaskForm):
 
 
 class CommentForm(FlaskForm):
-    text = TextAreaField('Comment', [InputRequired()])
-    submit = SubmitField('Create')
+    text = TextAreaField('Leave a Review', [InputRequired()])
+    submit = SubmitField('Post')

@@ -35,9 +35,10 @@ def create():
                           maxguests=form.maxguests.data,
                           image=db_file_path,
                           type=form.type.data,
+                          status=form.status.data,
                           description=form.description.data,
                           description_header=form.description_header.data,
-                          user=current_user.id,
+                          user_id=current_user.id,
                           artist = form.artist.data
                           )
         db.session.add(new_event)
@@ -89,7 +90,7 @@ def comment(event):
         # read the comment from the form
         comment = Comment(text=form.text.data,
                           event_id=event_obj.id,
-                          user=current_user.name)
+                          user_id=current_user.id)
         # here the back-referencing works - comment.destination is set
         # and the link is created
         db.session.add(comment)
