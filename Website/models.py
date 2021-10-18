@@ -60,6 +60,7 @@ class Comment(db.Model):
    
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)
