@@ -88,24 +88,25 @@
                 <!-- DYNAMIC ADDITION OF SCROLL ON NO OF COMMENTS > 5 SO PAGE DOESNT GET TOO BIG -->
                 <!-- COMMENT SCROLL NEEDS SOME WORK -->
 
-                <div class="container mt-3 justify-content-center">
+                <div class="container mt-3 justify-content-center" style=" overflow-y: scroll;">
                     <div class="col text-center d-flex px-2 mb-2 justify-content-center">
                         <h3>Reviews</h3>
                     </div>
                     {% for comment in event.comments %}
-                    <div style="max-height: 200px; overflow-y: scroll;">
-                        <div class="media p-3 ml=2" >
+                    <div style="max-height: 200px;">
+                        <div class="media p-3 ml=2">
                             <div class="media-comment">
                                 <div id="media-image">
                                     <img src="../../static/images/RAW/profile.png" alt="Jane Doe"
                                         class="mr-3 mt-3 rounded-circle" style="width:45px;">
                                 </div>
                                 <div>
-                                    <div class = "row mb-1">
-                                        <div >
-                                            <h6 style="float:left;">{{comment.users.name }}</h6>
+                                    <div class="row mb-1">
+                                        <div>
+                                            <h6 style="float:left;">{{comment.user }}</h6>
 
-                                            <h6 style="float:right;"><small><i>Posted on {{comment.created_at}} </i></small></h6>
+                                            <h6 style="float:right;"><small><i>Posted on {{comment.created_at}}
+                                                    </i></small></h6>
                                         </div>
                                     </div>
                                     <div class="row mb-1 media border border-secondary ">
@@ -119,10 +120,9 @@
 
                         </div>
 
-                    </div>
-                    {% endfor %}
-                    {% if current_user.is_authenticated %}
-                    <!-- <div class="form-group mt-3">
+                        {% endfor %}
+                        {% if current_user.is_authenticated %}
+                        <!-- <div class="form-group mt-3">
                         <label for="exampleFormControlTextarea1">Leave a Review</label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         
@@ -130,6 +130,8 @@
                             Post
                         </button>
                     </div> -->
+                    </div>
+
                     <div class="row mb-2 ">
                         <div class="col">
                             {{wtf.quick_form(form,"/events/{0}/comment".format(event.id))}}

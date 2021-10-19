@@ -26,7 +26,7 @@ def create():
     if form.validate_on_submit():
         new_event = Event(title=form.title.data,
                           startdate=form.startdate.data,
-                          enddate = form.enddate.data,
+                          enddate=form.enddate.data,
                           starttime=form.starttime.data,
                           endtime=form.endtime.data,
                           address=form.address.data,
@@ -38,8 +38,8 @@ def create():
                           status=form.status.data,
                           description=form.description.data,
                           description_header=form.description_header.data,
-                          user_id=current_user.id,
-                          artist = form.artist.data
+                          user=current_user.id,
+                          artist=form.artist.data
                           )
         db.session.add(new_event)
         db.session.commit()
@@ -90,7 +90,7 @@ def comment(event):
         # read the comment from the form
         comment = Comment(text=form.text.data,
                           event_id=event_obj.id,
-                          user_id=current_user.id)
+                          user=current_user.id)
         # here the back-referencing works - comment.destination is set
         # and the link is created
         db.session.add(comment)

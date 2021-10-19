@@ -42,7 +42,7 @@ class Event(db.Model):
     # relation to call destination.comments and comment.destination
     comments = db.relationship('Comment', backref='events')
     # add a fk to tie the currently logged in user to the even
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+    user = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     name = db.relationship('User', backref='events')
 
@@ -56,8 +56,8 @@ class Comment(db.Model):
     text = db.Column(db.String(400))
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-   
+    user = db.Column(db.Integer, db.ForeignKey('users.name'))
+
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 
     def __repr__(self):
