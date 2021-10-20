@@ -41,7 +41,7 @@ def create_app():
     # db.init_app(app)
 
     # config upload folder
-    UPLOAD_FOLDER = '/static/images'
+    UPLOAD_FOLDER = 'static/images/event_imgs/'
     app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
     # import main bp from views

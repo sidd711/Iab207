@@ -35,7 +35,7 @@ def create():
                           maxguests=form.maxguests.data,
                           image=db_file_path,
                           type=form.type.data,
-                          status=form.status.data,
+                          status="Upcoming",
                           description=form.description.data,
                           description_header=form.description_header.data,
                           user=current_user.id,
@@ -43,7 +43,7 @@ def create():
                           )
         db.session.add(new_event)
         db.session.commit()
-        flash('Event created sucessfully.')
+        flash('Event created successfully.')
         return redirect(url_for('event.create'))
     return render_template('forms.html', form=form, heading="Create an Event")
 
@@ -57,9 +57,10 @@ def check_upload_file(form):
         BASE_PATH = os.path.dirname(__file__)
         # upload file location – directory of this file/static/image
         upload_path = os.path.join(
-            BASE_PATH, 'static/images', secure_filename(filename))
+            BASE_PATH, 'static/images/event_imgs/', secure_filename(filename))
         # store relative path in DB as image location in HTML is relative
-        db_upload_path = '/static/images/' + secure_filename(filename)
+        db_upload_path = 'static/images/event_imgs/' + \
+            secure_filename(filename)
         # save the file and return the db upload path
         fp.save(upload_path)
         return db_upload_path

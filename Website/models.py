@@ -12,11 +12,12 @@ class User(db.Model, UserMixin):
     # password is never stored in the DB, an encrypted password is stored
     # the storage should be at least 255 chars long
     password_hash = db.Column(db.String(255), nullable=False)
-
+    contact_no = db.Column(db.String(25), nullable=False)
     image = db.Column(db.String(400))
 
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='users')
+    bookings = db.relationship('Booking', backref='users')
 
 
 class Event(db.Model):
@@ -61,6 +62,23 @@ class Comment(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+
+    def __repr__(self):
+        return "<Comment: {}>".format(self.text)
+
+
+class Booking(db.Model):
+    __tablename__ = 'bookings'
+    id = db.Column(db.Integer, primary_key=True)
+    # A booking needs a date
+    created_at = db.Column(db.Date, default=datetime.now())
+    # add the foreign keys
+    # A booking needs to be for a user
+    user = db.Column(db.Integer, db.ForeignKey('users.id'))
+    # A booking needs to be for an event
+    event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    # It is helpful for the booking to feature the event date
+    event_date = db.Column(db.Integer, db.ForeignKey('events.startdate'))
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)

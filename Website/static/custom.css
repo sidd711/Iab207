@@ -141,3 +141,10 @@ footer{
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* Form  */
+
+.generalInfoHeading{
+    font-family:Impact;
+    color:cornflowerblue;
+  }

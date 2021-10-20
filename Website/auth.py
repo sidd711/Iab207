@@ -37,8 +37,8 @@ def login():
             login_user(u1)
             print(
                 f'Successfully logged in\nUser: {u1.name} \nID: {u1.id}')
-            # flash('You logged in successfully')
-            return redirect(url_for('main.index'))
+            flash('You logged in successfully')
+            return redirect(url_for('auth.login'))
     return render_template('forms.html', form=form, heading="Login")
 
 
@@ -59,13 +59,15 @@ def register():
         uname = form.user_name.data
         pwd = form.password.data
         email = form.password.data
+        contact = form.contact_no.data
 
         # generate a hashed pwd for security
         pwd_hash = generate_password_hash(pwd)
         # Create a new user object
         new_user = User(name=uname,
                         emailid=email,
-                        password_hash=pwd_hash,image=db_file_path)
+                        password_hash=pwd_hash, image=db_file_path,
+                        contact_no=contact)
 
         # check if user exist in the database
         exists = db.session.query(User.name).filter_by(
