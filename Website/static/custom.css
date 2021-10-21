@@ -147,4 +147,21 @@ footer{
 .generalInfoHeading{
     font-family:Impact;
     color:cornflowerblue;
-  }
+}
+
+/* Modal */
+
+/* 
+.modal-content{
+    background: linear-gradient(rgba(124, 101, 101, 0.801), rgba(18, 77, 13, 0.5)), url("checkout.jpg");
+    background-size: cover;
+}
+
+.modal-title{
+    font:normal;
+    font: weight 800px;
+    font-size: 40px;
+    color: rgb(17, 20, 16);
+    font-family: fantasy;
+} */
+

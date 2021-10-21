@@ -58,16 +58,12 @@
               Account
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Account Details</a></li>
               <li><a class="dropdown-item" href="#">My Events</a></li>
+              <li><a class="dropdown-item" href="#">Booked Events</a></li>
               <li>
                 <hr class="dropdown-divider">
               </li>
-              <li><a class="dropdown-item" href="#">Saved Events</a></li>
-              <li><a class="dropdown-item" href="#">Following</a></li>
-              <li><a class="dropdown-item" href="#">Alerts</a></li>
-              <li><a class="dropdown-item" href="#">Settings</a></li>
-              <li><a class="dropdown-item" href="#">Help</a></li>
+              <li><a class="dropdown-item" href="#">Account Details</a></li>
               <li>
                 {% if current_user.is_authenticated %}
                 <a class="dropdown-item" href={{url_for('auth.logout')}}>Log out</a>
@@ -81,18 +77,18 @@
           <li>
             <a class="nav-link" href={{url_for('auth.login')}}>Login</a>
           </li>
-
           {% endif %}
 
 
         </ul>
         {% if current_user.is_authenticated %}
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary me-md-2" onclick="window.location.href='/logout'" type="button">Logout</button>
+          <button class="btn btn-success me-md-2" onclick="window.location.href='/logout'" type="button">Logout</button>
         </div>
         {% else %}
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary me-md-2" onclick="window.location.href='/login'" type="button">Sign In | Register</button>
+          <button class="btn btn-success me-md-2" onclick="window.location.href='/login'" type="button">Sign In |
+            Register</button>
         </div>
         {% endif %}
       </div>

@@ -72,7 +72,7 @@ def show(id):
     # create an event item accociated with the event id which is collected from the link
     event = Event.query.filter_by(id=id).first()
 
-    event_user = User.query.filter_by(id=event.user_id).first()
+    event_user = User.query.filter_by(id=event.user).first()
     event_owner = event_user.name
     # create a new variable that contains the event comments -is this a list? uncertain print it
     event_comments = event.comments
@@ -91,7 +91,7 @@ def comment(event):
         # read the comment from the form
         comment = Comment(text=form.text.data,
                           event_id=event_obj.id,
-                          user=current_user.id)
+                          user=current_user.name)
         # here the back-referencing works - comment.destination is set
         # and the link is created
         db.session.add(comment)

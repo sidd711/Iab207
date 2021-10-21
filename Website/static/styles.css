@@ -146,52 +146,6 @@
 
 
 
-  .modal-content
-  {
-    background: linear-gradient(rgba(124, 101, 101, 0.801), rgba(18, 77, 13, 0.5)), url("checkout.jpg");
-
-    background-size: cover;
-    
-  }
-
-.modal-title
-{
-font:normal;
- font: weight 800px;
-font-size: 40px;
-color: rgb(17, 20, 16);
-font-family: fantasy;
-
-}
-
-
-img.rounded-corners
-{
-  border-radius: 50%; height: 10rem; width: 10rem;
-}
-
-i.star{
-  color:rgb(163, 163, 2);
-  
-}
-
-
-
-hr.index-line
-{
-  border-top: 3px solid darkgreen;
-}
-hr.solid {
-  border-top: 4px solid darkgreen;
-
-  vertical-align: middle;
-}
-
-option.form-select 
-{
-  text-align: left;
-  color:gray;
-}
 
 .create-but
 {

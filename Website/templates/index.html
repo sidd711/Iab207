@@ -20,8 +20,7 @@
       <div class="bg-overlay" style=" background-image:url(../static/images/mic.jpg);">
         <div class="carousel-container">
           <h1>Welcome to Eventsy!</h1>
-          <p class="lead">quaerat error fugit hic laborum adipisci dolor explicabo esse quisquam
-            excepturi quae distinctio, harum iure</p>
+          <p class="lead">At Eventsy you can browse, book and track music events that interest you.</p>
           <a href="{{ url_for('auth.register') }}">
             <button type="button" class="btn btn-lg btn-outline-success mb-2">Sign up now</button>
           </a>
@@ -33,9 +32,7 @@
       <div class="bg-overlay" style=" background-image:url(../static/images/party.jpg);">
         <div class="carousel-container">
           <h1>Explore Upcoming Artist</h1>
-          <p class="lead"> In nec diam nec tellus ultricies auctor. Aliquam at turpis non elit rutrum facilisis eu
-            quis est. Vivamus
-            non erat arcu. Etiam mauris urna, lobortis.</p>
+          <p class="lead"> Browse events by genre, artist or location.</p>
           <a href="#events">
             <button type="button" class="btn btn-lg btn-outline-success mb-2">Browse all Events</button>
           </a>
@@ -49,10 +46,8 @@
       <div class="bg-overlay" style=" background-image:url(../static/images/perform.jpg);">
         <div class="carousel-container">
 
-          <h1>Want to Organise Event?</h1>
-          <p class="lead">Etiam cursus consequat libero. In condimentum lectus non est nibh.
-            Donec molestie libero et convallis imperdiet. Fusce accumsan varius nisi.
-
+          <h1>Want to Organise an Event?</h1>
+          <p class="lead">Interested in advertising an event? Click below to create an event with Eventsy.
           </p>
           <a href="{{url_for('event.create')}}">
             <button type="button" class="btn btn-lg btn-outline-success mb-2">Be an Organiser</button>
@@ -154,7 +149,7 @@
 <div class="container-fluid" id="events">
   <div class="row d-flex align-items-start">
     {% for event in events %}
-    <div class="col-xxl-3 col-lg-4 col-md-6 col-xs-7 d-block mx-auto">
+    <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-7 d-block mx-auto">
 
       <!-- Card -->
       <div class="card shadow-lg px-3 pb-3 mb-5 bg-body rounded">
