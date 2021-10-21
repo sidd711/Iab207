@@ -9,11 +9,14 @@ from .models import Event
 
 bp = Blueprint('main', __name__)
 
+choices = ["Mixed Genre", "Pop", "Rock",
+           "Country", "Blues", "Techno", "Hip hop"]
+
 
 @bp.route('/')
 def index():
     events = Event.query.all()
-    return render_template('index.html', events=events)
+    return render_template('index.html', events=events, choices=choices)
 
 
 @bp.route('/search')
@@ -31,4 +34,10 @@ def search():
 
 @bp.route('/genre')
 def genre():
-    return render_template('index.html')
+    if request.args["genredrop"] != 'all':
+        print(request.args['genredrop'])
+        event_search = request.args['genredrop']
+        events = Event.query.filter(Event.type.like(event_search)).all()
+        return render_template('index.html', events=events)
+    else:
+        return redirect(url_for('main.index'))

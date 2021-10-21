@@ -126,24 +126,50 @@
       <!-- Important feature needs to be implemented, use same redirect functionality as search i assume? -->
       <!-- Need to feed the value from this dropdown through the backend to push the functionality. How? -->
       <div class="col-xs-6">
-        <div class="drop2">Genre<a class="btn btn-light btn-info btn-lg btn-outline-success dropdown-toggle" href="#"
-            role="button" id="genredrop" data-bs-toggle="dropdown" aria-expanded="false"
-            style="font-size: 15px;margin: 20px;">All genres</a>
-          <ul class="dropdown-menu" aria-labelledby="genredrop">
-            <li><a class="dropdown-item" href="#">Mixed Genre</a></li>
+        <form class="d-flex align-items-center" action="{{url_for('main.genre')}}">
+
+          <!-- <input type="text" placeholder="Search"  class=" flex-grow-1 my-1 mr-sm-2 mx-1 "
+            id="SearchForm"> -->
+
+          <select class="form-select form-control" name="genredrop" aria-label="Default select example">
+            <option value="all" selected>All Events</option>
+            <option value="Pop">Pop</option>
+            <option value="Rock">Rock</option>
+            <option value="Mixed Genre">Mixed Genre</option>
+          </select>
+
+          <!-- <div class="drop2">Genre<a class="btn btn-light btn-info btn-lg btn-outline-success dropdown-toggle" href="#"
+          role="button" id="genredrop" name="genredrop" data-bs-toggle="dropdown" aria-expanded="false"
+          style="font-size: 15px;margin: 20px;">All genres</a>
+        <ul class="dropdown-menu" aria-labelledby="genredrop">
+          <li><a class="dropdown-item" type="submit" href="{{url_for('main.genre')}}">Mixed Genre</a></li>
+          <li><a class="dropdown-item" href="{{url_for('main.genre')}}">Pop</a></li>
+          <li><a class="dropdown-item" href="{{url_for('main.genre')}}">Rock</a></li>
+          <li><a class="dropdown-item" href="{{url_for('main.genre')}}">Country</a></li>
+          <li><a class="dropdown-item" href="{{url_for('main.genre')}}">Blues</a></li>
+          <li><a class="dropdown-item" href="{{url_for('main.genre')}}">Techno</a></li>
+          <li><a class="dropdown-item" href="{{url_for('main.genre')}}">Hip hop</a></li> -->
+
+          <!-- <input class="form-control me-2" type="search" placeholder="Search"> -->
+          <button class="btn btn-success btn-outline-sucess" type="submit">Go</button>
+
+        </form>
+
+
+        <!-- 
             <li><a class="dropdown-item" href="#">Pop</a></li>
             <li><a class="dropdown-item" href="#">Rock</a></li>
             <li><a class="dropdown-item" href="#">Country</a></li>
             <li><a class="dropdown-item" href="#">Blues</a></li>
             <li><a class="dropdown-item" href="#">Techno</a></li>
-            <li><a class="dropdown-item" href="#">Hip hop</a></li>
-          </ul>
-        </div>
+            <li><a class="dropdown-item" href="#">Hip hop</a></li> -->
+        </ul>
       </div>
-
-
     </div>
+
+
   </div>
+</div>
 </div>
 <!-- End of funtionality row-->
 
