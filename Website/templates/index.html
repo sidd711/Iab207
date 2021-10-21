@@ -89,7 +89,7 @@
     <div class="col col-sm-10 col-md-8 col-lg-6">
       <form class="d-flex align-items-center" action="{{url_for('main.search')}}">
 
-        <input type="text"placeholder = "Search" name="search" class="form-control flex-grow-1 my-1 mr-sm-2"   id="SearchForm">
+        <input type="text"placeholder = "Search" name="search" class="form-control flex-grow-1 my-1 mr-sm-2 mx-1 "   id="SearchForm">
         <!-- <input class="form-control me-2" type="search" placeholder="Search"> -->
         <button class="btn btn-success btn-outline-sucess" type="submit">Go</button>
 
@@ -193,7 +193,7 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                      <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                         data-bs-target="#eventid{{event.id}}" aria-expanded="true" aria-controls="eventid{{event.id}}">
                         Info
                       </button>
