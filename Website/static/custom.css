@@ -44,7 +44,35 @@
 }
   
 /* end card */
-  
+/* on index.html*/
+
+.bg-overlay.bg_img_1
+{
+  background-image:url(../static/images/mic.jpg);
+
+}
+
+.bg-overlay.bg_img_2
+{
+    background-image:url(../static/images/party.jpg);
+}
+
+
+.bg-overlay.bg_img_3
+
+{
+    background-image:url(../static/images/perform.jpg); 
+}
+
+/* end index.html */
+
+
+
+
+
+
+
+
 /* Dropdown menus on index */
 
 .drop1
@@ -111,6 +139,20 @@
 
 /* form.html */
 
+
+#top_form.container-fluid
+{
+   height: 100vh;
+   background-image: url('../static/images/party.jpg');
+    background-size: cover; 
+   background-repeat: no-repeat;
+}
+
+.login_form
+{
+    background-color: rgba(255, 255, 255, 0.836);
+}
+
 .myform{
     border-radius: 5px;
     border-width: 1px;
@@ -135,7 +177,31 @@ input[type=file]::file-selector-button:hover {
     width:1000px;
     overflow-y: auto;
     max-height:700px;
+    background-color: rgba(255, 255, 255, 0.836);
 }
+
+
+.form-control.description_header
+{
+    height:60px;
+}
+
+
+.form-control.description
+{
+    height: 120px;
+}
+
+.comment_loop
+{
+   max-height: 300px;
+}
+
+#comment_container.container
+{
+  overflow-y: scroll;
+}
+
 
 .form-label{
     float:left;
@@ -174,6 +240,7 @@ footer{
     z-index: -1;
     background-repeat: no-repeat;
     background-size: cover;
+    
 }
 
 /* Form  */

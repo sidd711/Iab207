@@ -87,12 +87,12 @@
                     <!-- DYNAMIC ADDITION OF SCROLL ON NO OF COMMENTS > 5 SO PAGE DOESNT GET TOO BIG -->
                     <!-- COMMENT SCROLL NEEDS SOME WORK -->
 
-                    <div class="container mt-3 justify-content-center" style=" overflow-y: scroll;">
+                    <div id = "comment_container" class="container mt-3 justify-content-center" >
                         <div class="col text-center d-flex px-2 mb-2 justify-content-center">
                             <h3>Reviews</h3>
                         </div>
                         {% for comment in event.comments %}
-                        <div style="max-height: 300px;">
+                        <div class ="comment_loop">
                             <div class="row m-2">
                                 <div class="col-3 p-3 ml-2 border">
                                     <img src="{{comment.image}}" alt="Image not found"
