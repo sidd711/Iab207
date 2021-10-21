@@ -88,11 +88,11 @@
         </ul>
         {% if current_user.is_authenticated %}
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary me-md-2" onclick="window.location.href='/logout'" type="button">Logout</button>
+          <button class="btn btn-success me-md-2" onclick="window.location.href='/logout'" type="button">Logout</button>
         </div>
         {% else %}
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-          <button class="btn btn-primary me-md-2" onclick="window.location.href='/login'" type="button">Sign In | Register</button>
+          <button class="btn btn-success me-md-2" onclick="window.location.href='/login'" type="button">Sign In | Register</button>
         </div>
         {% endif %}
       </div>
