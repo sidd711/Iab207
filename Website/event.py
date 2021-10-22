@@ -6,6 +6,9 @@ from .models import Event, Comment, User
 from flask import Blueprint, render_template, flash, url_for, request
 from flask_login import login_required, current_user
 
+
+
+
 bp = Blueprint('event', __name__, url_prefix='/events')
 
 
@@ -134,23 +137,25 @@ def update(id):
     form.description_header.data = event.description_header
 
     if form.validate_on_submit():
-        event.title = form.title.data
 
-        event.startdate = form.startdate.data
-        event.enddate = form.enddate.data
-        event.starttime = form.starttime.data
-        event.endtime = form.endtime.data
-        event.address = form.address.data
-        event.city = form.city.data
-        event.suburb = form.city.data
-        event.maxguests = form.maxguests.data
-        event.type = form.type.data
-        event.status = form.status.data
-        event.description = form.description.data
-        event.artist = form.artist.data
-        event.description_header = form.description_header.data
+        
+        event.title = request.form["title"]
+        #event.startdate = request.form["startdate"]
+        #event.enddate = request.form["enddate"]
+        #event.starttime = request.form["starttime"]
+        #event.endtime = request.form["endtime"]
+        event.address = request.form["address"]
+        event.city = request.form["city"]
+        event.suburb = request.form["city"]
+        event.maxguests = request.form["maxguests"]
+        event.type = request.form["type"]
+        event.status = request.form["status"]
+        event.description = request.form["description"]
+        event.artist = request.form["artist"]
+        event.description_header = request.form["description_header"]
         db.session.commit()
         print('Event updated successfully')
+        print(event.title)
         return redirect(url_for('event.myevents'))
     else:
         return render_template('forms.html', form=form, heading="Update", id=id)
