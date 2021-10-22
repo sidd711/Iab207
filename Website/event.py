@@ -1,7 +1,7 @@
 from . import db
 import os
 from werkzeug.utils import redirect, secure_filename
-from .forms import CreateEvent, CommentForm
+from .forms import CreateEvent, CommentForm, UpdateEvent
 from .models import Event, Comment, User
 from flask import Blueprint, render_template, flash, url_for, request
 from flask_login import login_required, current_user
@@ -101,3 +101,56 @@ def comment(event):
         print('Comment added sucessfully')
     # using redirect sends a GET request to destination.show
     return redirect(url_for('event.show', id=event))
+
+
+@bp.route('/myevents')
+@login_required
+def myevents():
+    print(current_user.id)
+    events = Event.query.filter_by(user=current_user.id).all()
+    return render_template('event/myevents.html', events=events)
+
+
+@bp.route('/<id>/update', methods=['GET', 'POST'])
+@login_required
+def update(id):
+    event = Event.query.filter_by(id=id).first()
+    form = UpdateEvent()
+
+    form.title.data = event.title
+    form.startdate.data = event.startdate
+    form.enddate.data = event.enddate
+    form.starttime.data = event.starttime
+    form.endtime.data = event.endtime
+    form.address.data = event.address
+    form.city.data = event.city
+    form.suburb.data = event.suburb
+    form.maxguests.data = event.maxguests
+    # form.image.data = event.image
+    form.type.data = event.type
+    form.status.data = event.status
+    form.description.data = event.description
+    form.artist.data = event.artist
+    form.description_header.data = event.description_header
+
+    if form.validate_on_submit():
+        event.title = form.title.data
+
+        event.startdate = form.startdate.data
+        event.enddate = form.enddate.data
+        event.starttime = form.starttime.data
+        event.endtime = form.endtime.data
+        event.address = form.address.data
+        event.city = form.city.data
+        event.suburb = form.city.data
+        event.maxguests = form.maxguests.data
+        event.type = form.type.data
+        event.status = form.status.data
+        event.description = form.description.data
+        event.artist = form.artist.data
+        event.description_header = form.description_header.data
+        db.session.commit()
+        print('Event updated successfully')
+        return redirect(url_for('event.myevents'))
+    else:
+        return render_template('forms.html', form=form, heading="Update", id=id)

@@ -2,7 +2,89 @@
 
 {% block content %}
 
-<!-- This will contain the events that belong to the user, and include redirection to an event modification 
-    page where the user can modify the contents of the event -->
 
-{% endblock %}
+<div class="container-fluid">
+    <div class="row d-flex align-items-start">
+        <h2 class="display-3 text-center mt-3">My Events</h2>
+        {% for event in events %}
+        <div class="col-xxl-3 col-lg-4 col-md-6 col-sm-7 d-block mx-auto">
+
+            <!-- Card -->
+            <div class="card shadow-lg px-3 pb-3 mb-5 bg-body rounded">
+                <div class="card-body">
+
+
+                    <!-- Event Status -->
+
+                    {% if event.status == "Upcoming" %}
+
+                    <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
+
+                        {% elif event.status == "Booked" %}
+                        <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-info">
+
+                            {% elif event.status == "Cancelled" %}
+                            <span
+                                class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+
+                                {% elif event.status == "Inactive" %}
+
+                                <span
+                                    class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-danger">
+
+                                    {% endif %}
+
+                                    {{event.status}}
+                                    <span class="visually-hidden">Event Status</span>
+                                </span>
+
+                                <h4 class="text-center">{{event.title}}</h4>
+
+                                <!-- Poster -->
+
+                                <div class="d-flex justify-content-center">
+                                    <img class="card-image d-block mb-2" src="{{event.image}}"
+                                        alt="Poster of Event No. {{event.id}}">
+                                </div>
+
+
+                                <!-- Details -->
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#eventid{{event.id}}"
+                                                aria-expanded="true" aria-controls="eventid{{event.id}}">
+                                                Info
+                                            </button>
+                                        </h2>
+                                        <div id="eventid{{event.id}}" class="accordion-collapse collapse"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <p>
+                                                    <strong>Venue: </strong>{{event.address}}, {{event.city}},
+                                                    {{event.suburb}}<br>
+                                                    <strong>Date: </strong>{{event.startdate}}<br>
+                                                    <a href="{{ url_for('event.show', id=event.id) }}"
+                                                        class="btn btn-outline-danger d-flex align-items-center">View
+                                                        Details
+                                                    </a>
+                                                    <a href="{{ url_for('event.update', id=event.id) }}"
+                                                        class="btn btn-outline-danger d-flex align-items-center">Update
+                                                        Event
+                                                    </a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+    </html>
+
+    {% endblock %}

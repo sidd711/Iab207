@@ -134,7 +134,7 @@
 /* form.html */
 
 
-#top_form.container-fluid
+.top_form
 {
    height: 100vh;
    background-image: url('../static/images/party.jpg');
