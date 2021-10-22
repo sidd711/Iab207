@@ -52,7 +52,7 @@
                                 <div class="accordion" id="accordionExample">
                                     <div class="accordion-item">
                                         <h2 class="accordion-header" id="headingOne">
-                                            <button class="accordion-button collapsed" type="button"
+                                            <button class="accordion-button collapsed btn-outline-success" type="button"
                                                 data-bs-toggle="collapse" data-bs-target="#eventid{{event.id}}"
                                                 aria-expanded="true" aria-controls="eventid{{event.id}}">
                                                 Info
@@ -66,11 +66,11 @@
                                                     {{event.suburb}}<br>
                                                     <strong>Date: </strong>{{event.startdate}}<br>
                                                     <a href="{{ url_for('event.show', id=event.id) }}"
-                                                        class="btn btn-outline-danger d-flex align-items-center">View
+                                                        class="btn btn-outline-success d-flex align-items-center">View
                                                         Details
                                                     </a>
                                                     <a href="{{ url_for('event.update', id=event.id) }}"
-                                                        class="btn btn-outline-danger d-flex align-items-center">Update
+                                                        class="btn btn-outline-success d-flex align-items-center">Update
                                                         Event
                                                     </a>
                                                 </p>
