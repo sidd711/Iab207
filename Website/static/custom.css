@@ -44,8 +44,10 @@
 }
   
 /* end card */
+
 /* on index.html*/
 
+/* modal images */
 .bg-overlay.bg_img_1
 {
   background-image:url(../static/images/mic.jpg);
@@ -147,6 +149,11 @@
     background-color: rgba(255, 255, 255, 0.836);
 }
 
+.scroll
+{
+    overflow-y: scroll;
+}
+
 .myform{
     border-radius: 5px;
     border-width: 1px;
@@ -174,12 +181,10 @@ input[type=file]::file-selector-button:hover {
     background-color: rgba(255, 255, 255, 0.836);
 }
 
-
 .form-control.description_header
 {
     height:60px;
 }
-
 
 .form-control.description
 {
