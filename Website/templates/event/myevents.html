@@ -65,26 +65,31 @@
                                                     <strong>Venue: </strong>{{event.address}}, {{event.city}},
                                                     {{event.suburb}}<br>
                                                     <strong>Date: </strong>{{event.startdate}}<br>
+                                                <div class="row justify-content-md-center">
                                                     <a href="{{ url_for('event.show', id=event.id) }}"
-                                                        class="btn btn-outline-success d-flex align-items-center">View
+                                                        class="btn btn-outline-success d-flex justify-content-center col-8">View
                                                         Details
                                                     </a>
+                                                    </div>
+                                                    <div class="row justify-content-md-center">
+
                                                     <a href="{{ url_for('event.update', id=event.id) }}"
-                                                        class="btn btn-outline-success d-flex align-items-center">Update
+                                                        class="btn btn-outline-success d-flex justify-content-center col-8 mt-1">Update
                                                         Event
                                                     </a>
-                                                </p>
+                                                    </div>
+                                                    </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                 </div>
             </div>
+            {% endfor %}
+
         </div>
-        {% endfor %}
 
-    </div>
+        </html>
 
-    </html>
-
-    {% endblock %}
+        {% endblock %}

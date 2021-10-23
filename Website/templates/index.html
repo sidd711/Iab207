@@ -121,12 +121,13 @@
           </ul>
         </div>
       </div>
+    
 
       <!-- Option to browse events via category -->
       <!-- Important feature needs to be implemented, use same redirect functionality as search i assume? -->
       <!-- Need to feed the value from this dropdown through the backend to push the functionality. How? -->
-      <div class="col-xs-6">
-        <form class="d-flex align-items-center" action="{{url_for('main.genre')}}">
+      <div class="col-xs-6 py-3">
+        <form class="d-flex align-items-center " action="{{url_for('main.genre')}}">
 
           <!-- <input type="text" placeholder="Search"  class=" flex-grow-1 my-1 mr-sm-2 mx-1 "
             id="SearchForm"> -->
@@ -221,7 +222,7 @@
                 <div class="accordion" id="accordionExample">
                   <div class="accordion-item">
                     <h2 class="accordion-header" id="headingOne">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                      <button class="accordion-button collapsed btn-outline-success" type="button" data-bs-toggle="collapse"
                         data-bs-target="#eventid{{event.id}}" aria-expanded="true" aria-controls="eventid{{event.id}}">
                         Info
                       </button>
@@ -233,7 +234,7 @@
                           <strong>Venue: </strong>{{event.address}}, {{event.city}}, {{event.suburb}}<br>
                           <strong>Date: </strong>{{event.startdate}}<br>
                           <a href="{{ url_for('event.show', id=event.id) }}"
-                            class="btn btn-outline-danger d-flex align-items-center">View Details
+                            class="btn btn-outline-success d-flex align-items-center">View Details
                           </a>
                         </p>
                       </div>
