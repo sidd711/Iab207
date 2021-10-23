@@ -5,8 +5,7 @@ from .forms import CreateEvent, CommentForm, UpdateEvent
 from .models import Event, Comment, User
 from flask import Blueprint, render_template, flash, url_for, request
 from flask_login import login_required, current_user
-
-
+from datetime import date, datetime, time
 
 
 bp = Blueprint('event', __name__, url_prefix='/events')
@@ -25,7 +24,6 @@ def create():
     # instantiate the from to access input information from page
     form = CreateEvent()
     db_file_path = check_upload_file(form)
-    # db_file_path = check_upload_file(form)
     if form.validate_on_submit():
         new_event = Event(title=form.title.data,
                           startdate=form.startdate.data,
@@ -129,7 +127,6 @@ def update(id):
     form.city.data = event.city
     form.suburb.data = event.suburb
     form.maxguests.data = event.maxguests
-    # form.image.data = event.image
     form.type.data = event.type
     form.status.data = event.status
     form.description.data = event.description
@@ -137,25 +134,55 @@ def update(id):
     form.description_header.data = event.description_header
 
     if form.validate_on_submit():
-
-        
-        event.title = request.form["title"]
-        #event.startdate = request.form["startdate"]
-        #event.enddate = request.form["enddate"]
-        #event.starttime = request.form["starttime"]
-        #event.endtime = request.form["endtime"]
-        event.address = request.form["address"]
-        event.city = request.form["city"]
-        event.suburb = request.form["city"]
-        event.maxguests = request.form["maxguests"]
-        event.type = request.form["type"]
-        event.status = request.form["status"]
-        event.description = request.form["description"]
-        event.artist = request.form["artist"]
-        event.description_header = request.form["description_header"]
-        db.session.commit()
-        print('Event updated successfully')
-        print(event.title)
-        return redirect(url_for('event.myevents'))
+        # create two new date and time object from the old date strings
+        newstartdate = create_date(request.form["startdate"])
+        newenddate = create_date(request.form["enddate"])
+        newstarttime = create_time(request.form["starttime"])
+        newendtime = create_time(request.form["endtime"])
+        print("newstart" + str(newstartdate))
+        print("newend" + str(newenddate))
+        # ensure start date is not after end date
+        if newstartdate > newenddate:
+            flash("End Date cannot be prior to start date")
+            return redirect(url_for('event.update', id=id))
+        else:
+            event.startdate = newstartdate
+            event.enddate = newenddate
+            event.title = request.form["title"]
+            event.starttime = newstarttime
+            event.endtime = newendtime
+            event.address = request.form["address"]
+            event.city = request.form["city"]
+            event.suburb = request.form["city"]
+            event.maxguests = request.form["maxguests"]
+            event.type = request.form["type"]
+            event.status = request.form["status"]
+            event.description = request.form["description"]
+            event.artist = request.form["artist"]
+            event.description_header = request.form["description_header"]
+            db.session.commit()
+            print('Event updated successfully')
+            return redirect(url_for('event.myevents'))
     else:
         return render_template('forms.html', form=form, heading="Update", id=id)
+
+
+# methods that takes a strings of date/time and converts them into new date/time objects (needed for the database to re-accept them)
+def create_date(date_string):
+    yearint = int(date_string[0:4])
+    monthint = int(date_string[5:7])
+    dayint = int(date_string[8:10])
+    print(f"Year:" + str(yearint) + ", month:" +
+          str(monthint) + ", day:" + str(dayint))
+    newdate = date(yearint, monthint, dayint)
+    print(newdate)
+    return newdate
+
+
+def create_time(time_string):
+    hourint = int(time_string[0:2])
+    minuteint = int(time_string[3:5])
+    print(f"Hour:" + str(hourint) + ", minutes:" + str(minuteint))
+    newtime = time(hourint, minuteint)
+    print(newtime)
+    return newtime

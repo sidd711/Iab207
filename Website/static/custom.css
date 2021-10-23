@@ -136,10 +136,10 @@
 
 .top_form
 {
-   height: 100vh;
-   background-image: url('../static/images/party.jpg');
+    height: 100vh;
+    background-image: url('../static/images/party.jpg');
     background-size: cover; 
-   background-repeat: no-repeat;
+    background-repeat: no-repeat;
 }
 
 .login_form
