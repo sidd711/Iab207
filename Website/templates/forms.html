@@ -8,17 +8,17 @@
 <!-- Form area -->
 <!-- Alternative sizing for different forms -->
 {% if heading|lower == "create an event" %}
-<div class="container-fluid d-flex flex-column justify-content-center text-center top_form">
+<div class="container-fluid d-flex flex-column justify-content-center text-center event_form">
     <div class="row d-flex justify-content-center mt-3 mb-3 scroll">
         <div class="login_form col-sm-8 col-lg-8 rounded-2 pt-3">
 
             {% elif heading|lower == "update" %}
-            <div class="container-fluid d-flex flex-column justify-content-center text-center top_form">
+            <div class="container-fluid d-flex flex-column justify-content-center text-center event_form">
                 <div class="row d-flex justify-content-center mt-3 mb-3 scroll">
                     <div class="login_form col-sm-8 col-lg-8 rounded-2 pt-3">
 
                         {% elif heading|lower != "create an event" %}
-                        <div class="container-fluid d-flex flex-column justify-content-center text-center top_form">
+                        <div class="container-fluid d-flex flex-column justify-content-center text-center auth_form">
                             <div class="row d-flex justify-content-center mx-2 scroll">
                                 <div class="login_form col-sm-7 col-md-6 col-lg-4 rounded-2 pt-3">
                                     {% endif %}
@@ -76,7 +76,8 @@
                                                     </div>
 
                                                     <div>
-                                                        <strong><label class="form-label" for="EventTitle">Event Title:</label></strong>
+                                                        <strong><label class="form-label" for="EventTitle">Event
+                                                                Title:</label></strong>
                                                         {{form.title(class_="form-control" ,
                                                         placeholder="Be clear and Descriptive")}}
                                                     </div>
@@ -243,7 +244,8 @@
                                             </div>
 
 
-                                            <input class="btn col-4 btn-outline-success mb-2" type="submit" value="Submit">
+                                            <input class="btn col-4 btn-outline-success mb-2" type="submit"
+                                                value="Submit">
                                         </form>
 
                                         <!-- Manual formatting for update event form -->
@@ -260,7 +262,8 @@
                                                     </div>
 
                                                     <div>
-                                                        <strong><label class="form-label" for="EventTitle"> Event Title:</label></strong>
+                                                        <strong><label class="form-label" for="EventTitle"> Event
+                                                                Title:</label></strong>
                                                         {{form.title(class_="form-control",
                                                         placeholder="Be clear and Descriptive")}}
                                                     </div>
@@ -416,7 +419,8 @@
                                             </div>
 
 
-                                            <input class="btn btn-outline-success col-4 mb-2 py-2" type="submit" value="Submit">
+                                            <input class="btn btn-outline-success col-4 mb-2 py-2" type="submit"
+                                                value="Submit">
                                         </form>
                                         {% endif %}
                                     </div>
