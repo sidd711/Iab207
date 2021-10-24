@@ -15,10 +15,12 @@
 /* NAVBAR */
 
 /* Logo */
+
 .logo{
     height: 50px;
     width: 50px;
 }
+
 /* end logo */
   
 /* END NAVBAR */
@@ -113,7 +115,7 @@
 
 /* show.html */
 
-.show_event{
+.bg_white{
     background-color: rgba(255, 255, 255, 0.836);
 }
 
@@ -227,7 +229,12 @@ footer{
 
 /* show.html */
 
-/* Blur stuff */
+/* Avoid long unbroken comment strings from overflowing */
+.word-break{
+    word-wrap: break-word;
+}
+
+/* Blur background image */
 #parent_div{
     position: relative;
 }
