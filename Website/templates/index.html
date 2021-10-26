@@ -19,10 +19,12 @@
 
       <div class="bg-overlay bg_img_1">
         <div class="carousel-container">
-          <h1>Welcome to Eventsy!</h1>
-          <p class="lead">At Eventsy you can browse, book and track music events that interest you.</p>
+          <h1>Welcome to Eventsy</h1>
           {% if current_user.is_authenticated %}
+          <h1>{{current_user.name + '!'}}</h1>
+          <p class="lead">At Eventsy you can browse, book and track music events that interest you.</p>
           {% else %}
+          <p class="lead">At Eventsy you can browse, book and track music events that interest you.</p>
           <a href="{{ url_for('auth.register') }}">
             <button type="button" class="btn btn-lg btn-outline-success mb-2">Sign up now</button>
           </a>
