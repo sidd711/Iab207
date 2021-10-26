@@ -88,11 +88,13 @@
   </div>
   <!--  end Jumbotron -->
 
+
+  <!-- Search event bar -->
   <div class="row mb-3 d-flex justify-content-center">
+    <label for="SearchForm">Search for events:</label>
     <div class="col col-sm-10 col-md-8 col-lg-6">
       <form class="d-flex align-items-center" action="{{url_for('main.search')}}">
-
-        <input type="text" placeholder="Search" name="search" class="form-control flex-grow-1 my-1 mr-sm-2 mx-1 "
+        <input type="text" placeholder="Search" name="search" class="form-control flex-grow-1 my-1 mx-1"
           id="SearchForm">
         <button class="btn btn-success btn-outline-sucess" type="submit">Go</button>
 
@@ -100,35 +102,27 @@
     </div>
   </div>
 
-
-  <!-- Row containing search functionality + book & create event buttons -->
-  <div class="row">
-
-    <!-- Option to browse events via category -->
-    <!-- Important feature needs to be implemented, use same redirect functionality as search i assume? -->
-    <!-- Need to feed the value from this dropdown through the backend to push the functionality. How? -->
-    <div class="col-xs-6 py-3">
-      <form class="d-flex align-items-center " action="{{url_for('main.genre')}}">
-
-        <!-- <input type="text" placeholder="Search"  class=" flex-grow-1 my-1 mr-sm-2 mx-1 "
-            id="SearchForm"> -->
-
-        <select class="form-select form-control" name="genredrop" aria-label="Default select example">
-          <option value="all" selected>All Events</option>
+  <!-- Option to browse events via category -->
+  <div class="row mb-3 d-flex justify-content-center">
+    <label for="genre">Filter Events by Musical Genre:</label>
+    <div class="col col-sm-10 col-md-8 col-lg-6">
+      <form class="d-flex align-items-center" action="{{url_for('main.genre')}}">
+        <select class="form-select form-control flex-grow-1 my-1 mx-1" aria-label="Default select example"
+          name="genredrop" id="genre">
+          <option value="all" selected>All Genres</option>
+          <option value="Mixed Genre">Mixed Genres</option>
           <option value="Pop">Pop</option>
           <option value="Rock">Rock</option>
-          <option value="Mixed Genre">Mixed Genre</option>
+          <option value="Country">Country</option>
+          <option value="Blues">Blues</option>
+          <option value="Techno">Techno</option>
+          <option value="Hip hop">Hip hop</option>
         </select>
-
         <button class="btn btn-success btn-outline-sucess" type="submit">Go</button>
-
       </form>
       </ul>
     </div>
-
-
   </div>
-</div>
 </div>
 <!-- End of funtionality row-->
 
