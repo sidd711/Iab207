@@ -70,26 +70,71 @@
                                                         class="btn btn-outline-success d-flex justify-content-center col-8">View
                                                         Details
                                                     </a>
-                                                    </div>
-                                                    <div class="row justify-content-md-center">
+                                                </div>
+                                                <div class="row justify-content-md-center">
 
                                                     <a href="{{ url_for('event.update', id=event.id) }}"
                                                         class="btn btn-outline-success d-flex justify-content-center col-8 mt-1">Update
                                                         Event
                                                     </a>
-                                                    </div>
-                                                    </p>
                                                 </div>
+                                                <div class="row justify-content-md-center">
+
+
+                                                    <button
+                                                        class="btn btn-outline-danger d-flex justify-content-center col-8 mt-1"
+                                                        type="button" data-bs-toggle="modal"
+                                                        data-bs-target="#deleteModal">Delete Event
+                                                    </button>
+                                                </div>
+
+
+                                                <div class="modal fade" id="deleteModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title text-center"
+                                                                    id="exampleModalLabel">Delete Event:
+                                                                    {{event.title}}
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row justify-content-center">
+                                                                    <!-- THE OPTIONS HERE NEED TO BE LINKED TO THE EVENTS MAX GUESTS NUMBER -->
+                                                                    <p class="text-center">Are you sure you want to delete this event?</p>
+                                                                    <div class="d-grid col-6">
+                                                                        <button type="button"
+                                                                        class="btn btn-outline-secondary" data-bs-dismiss ="modal">No</button>
+                                                                    </div>
+                                                                    <div class="d-grid col-6">
+                                                                        <button type="button"
+                                                                            class="btn btn-outline-success">Delete</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+
                                             </div>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
                 </div>
             </div>
-            {% endfor %}
-
         </div>
+    </div>
+    {% endfor %}
 
-        </html>
+</div>
 
-        {% endblock %}
+</html>
+
+{% endblock %}

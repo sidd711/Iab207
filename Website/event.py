@@ -167,6 +167,13 @@ def update(id):
         return render_template('forms.html', form=form, heading="Update", id=id)
 
 
+
+
+
+
+
+
+
 # methods that takes a strings of date/time and converts them into new date/time objects (needed for the database to re-accept them)
 def create_date(date_string):
     yearint = int(date_string[0:4])
