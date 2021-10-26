@@ -1,9 +1,10 @@
+from re import U
 from flask import Blueprint, render_template, url_for, flash, request, redirect, url_for
 from . import db
 import os
 from werkzeug.utils import redirect, secure_filename
 from .forms import CreateEvent
-from .models import Event
+from .models import Event, User
 from flask_login import login_required, current_user
 from .models import Event
 
@@ -18,6 +19,17 @@ def index():
     events = Event.query.all()
     return render_template('index.html', events=events, choices=choices)
 
+# User account details page route
+
+
+@bp.route('/<id>/details')
+@login_required
+def details(id):
+    user = User.query.filter_by(id=current_user.id).first()
+    return render_template('details.html', user=user)
+
+# Search functionality found on index page route
+
 
 @bp.route('/search')
 def search():
@@ -30,6 +42,8 @@ def search():
         return render_template('index.html', events=events)
     else:
         return redirect(url_for('main.index'))
+
+# Route used for index page sort by category (in this case musical genre)
 
 
 @bp.route('/genre')

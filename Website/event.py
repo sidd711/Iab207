@@ -2,20 +2,15 @@ from . import db
 import os
 from werkzeug.utils import redirect, secure_filename
 from .forms import CreateEvent, CommentForm, UpdateEvent
-from .models import Event, Comment, User
+from .models import Booking, Event, Comment, User
 from flask import Blueprint, render_template, flash, url_for, request
 from flask_login import login_required, current_user
-from datetime import date, datetime, time
+from datetime import date, time
 
 
 bp = Blueprint('event', __name__, url_prefix='/events')
 
-
-@bp.route('/all', methods=["GET", "POST"])
-def show_all():
-
-    events = Event.query.all()
-    return render_template('event/show_all.html', events=events)
+# Route for event creation
 
 
 @bp.route('/create', methods=["GET", "POST"])
@@ -49,6 +44,7 @@ def create():
     return render_template('forms.html', form=form, heading="Create an Event")
 
 
+# Funtion to ensure correct formatting and deposition if image files
 def check_upload_file(form):
     # get file data from form
     fp = form.image.data
@@ -66,19 +62,21 @@ def check_upload_file(form):
         fp.save(upload_path)
         return db_upload_path
 
+# Route to show event details
+
 
 @bp.route('/<id>', methods=["GET", "POST"])
 def show(id):
     cform = CommentForm()
     # create an event item accociated with the event id which is collected from the link
     event = Event.query.filter_by(id=id).first()
-
     event_user = User.query.filter_by(id=event.user).first()
     event_owner = event_user.name
     # create a new variable that contains the event comments -is this a list? uncertain print it
     event_comments = event.comments
-
     return render_template('event/show.html', event=event, form=cform, event_owner=event_owner, comment_no=5)
+
+# Route for users to leave comments
 
 
 @bp.route('/<event>/comment', methods=['GET', 'POST'])
@@ -104,12 +102,22 @@ def comment(event):
     return redirect(url_for('event.show', id=event))
 
 
+# Route to view users owned events
 @bp.route('/myevents')
 @login_required
 def myevents():
-    print(current_user.id)
     events = Event.query.filter_by(user=current_user.id).all()
     return render_template('event/myevents.html', events=events)
+
+
+# Route to view users event bookings
+@bp.route('/mybookings')
+@login_required
+def mybookins():
+    bookings = Booking.query.filter_by(user=current_user.id).all()
+    return render_template('event/bookedevents.html', bookings=bookings)
+
+# Route to provide update event functionality
 
 
 @bp.route('/<id>/update', methods=['GET', 'POST'])
@@ -141,7 +149,7 @@ def update(id):
         newendtime = create_time(request.form["endtime"])
         print("newstart" + str(newstartdate))
         print("newend" + str(newenddate))
-        # ensure start date is not after end date
+        # If start date is after end date flash message to user
         if newstartdate > newenddate:
             flash("End Date cannot be prior to start date")
             return redirect(url_for('event.update', id=id))
@@ -162,12 +170,13 @@ def update(id):
             event.description_header = request.form["description_header"]
             db.session.commit()
             print('Event updated successfully')
+            flash("Event updated successfully")
             return redirect(url_for('event.myevents'))
     else:
         return render_template('forms.html', form=form, heading="Update", id=id)
 
 
-# methods that takes a strings of date/time and converts them into new date/time objects (needed for the database to re-accept them)
+# method that takes a string of a date and converts it into new date object (needed for the database to re-accept them)
 def create_date(date_string):
     yearint = int(date_string[0:4])
     monthint = int(date_string[5:7])
@@ -178,6 +187,8 @@ def create_date(date_string):
     print(newdate)
     return newdate
 
+# method that takes a string of a time and converts it into new time object (needed for the database to re-accept them)
+
 
 def create_time(time_string):
     hourint = int(time_string[0:2])
@@ -186,3 +197,16 @@ def create_time(time_string):
     newtime = time(hourint, minuteint)
     print(newtime)
     return newtime
+
+# Route to provide event deletion functionality
+
+
+@bp.route('/<id>/delete', methods=['GET', 'POST'])
+@login_required
+def delete(id):
+    event = Event.query.filter_by(id=id).first()
+    db.session.delete(event)
+    db.session.commit()
+    print('Event deleted successfully')
+    flash("Event deleted successfully")
+    return redirect(url_for('event.myevents'))
