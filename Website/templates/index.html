@@ -21,9 +21,13 @@
         <div class="carousel-container">
           <h1>Welcome to Eventsy!</h1>
           <p class="lead">At Eventsy you can browse, book and track music events that interest you.</p>
+          {% if current_user.is_authenticated %}
+          {% else %}
           <a href="{{ url_for('auth.register') }}">
             <button type="button" class="btn btn-lg btn-outline-success mb-2">Sign up now</button>
           </a>
+          {% endif %}
+
         </div>
       </div>
     </div>
