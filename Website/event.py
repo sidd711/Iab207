@@ -136,7 +136,16 @@ def book(id):
 @login_required
 def myevents():
     events = Event.query.filter_by(user=current_user.id).all()
+    if not events:
+        flash("You currently dont have any events")
+        return redirect(url_for('event.create'))
+
     return render_template('event/myevents.html', events=events)
+
+
+
+   
+
 
 
 # Route to view users event bookings
