@@ -254,3 +254,24 @@ footer{
 }
 
 /* end show.html */
+.error-404-template{
+    height: 100vh;
+    background-image: url('../static/images/error/404_erroe.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    padding: 40px 15px;
+    text-align: center;
+    font-size:xx-large;
+    color:blue;
+}
+
+.error-500-template{
+    height: 100vh;
+    background-image: url('../static/images/error/error-500.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+    padding: 40px 15px;
+    text-align: center;
+    font-size: large;
+    color:white;
+}

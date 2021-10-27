@@ -1,5 +1,5 @@
 import random
-from flask import Flask
+from flask import Flask,render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
@@ -54,4 +54,11 @@ def create_app():
     from . import event
     app.register_blueprint(event.bp)
 
+    @app.errorhandler(404)
+    def handle_404(err):
+        return render_template('404.html'), 404
+
+    @app.errorhandler(500)
+    def handle_500(err):
+        return render_template('500.html'), 500
     return app
