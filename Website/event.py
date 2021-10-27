@@ -113,11 +113,14 @@ def book(id):
         else:
         # read the booking from the form (only info it needs really should be user and number for booking, rest is foreign keys)
             booking = Booking(event_id=event_obj.id,
-            user=current_user.name,
-            attending = new_bookings,
-            event_date = event_obj.startdate)
+                              user=current_user.name,
+                              attending = new_bookings,
+                              event_date = event_obj.startdate)
+            
             db.session.add(booking)
             event_obj.maxguests -= new_bookings
+            if event_obj.maxguests == 0:
+                event_obj.status = "Booked"
             db.session.commit()
             # flashing a message which needs to be handled by the html
             # flash('Your comment has been added', 'success')

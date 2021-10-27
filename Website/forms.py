@@ -89,7 +89,7 @@ class UpdateEvent(FlaskForm):
     type = SelectField(choices=["Mixed Genre", "Pop",
                        "Rock", "Country", "Blues", "Techno", "Hip hop"])
     status = SelectField(
-        choices=["Upcoming", "Booked", "Cancelled", "Inactive"])
+        choices=["Upcoming", "Cancelled", "Inactive"])
     description = TextAreaField("Description", validators=[InputRequired()])
     description_header = StringField(
         "Description Header", validators=[InputRequired()])
