@@ -14,6 +14,21 @@
     <!-- Event area -->
     <div class="d-flex justify-content-center mx-3 noscroll">
         <div class="bg-white col-10 col-xl-8 rounded-2 p-3 my-5" style="overflow-y: scroll;">
+                                    <!-- flashes any messages to the user -->
+                                    {% with messages = get_flashed_messages() %}
+                                    {% if messages %}
+                                    <!-- check if there are any messages -->
+                                    <div class="row mt-3 mb-3">
+                                        <div class="col-12">
+                                            {% for message in messages %}
+                                            <!--loop through the messages-->
+                                            <div class="alert alert-success">{{ message }}</div>
+                                            <!--display as alert-->
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    {% endwith %}
 
             <div class="container mx-auto">
 
@@ -98,7 +113,6 @@
                             <small id="exampleFormControlTextarea1" class="form-text text-muted">
                                 Write about the event (Max 500 words)
                             </small>
-
                         </div>
                         {% endif %}
                     </div>
@@ -158,19 +172,10 @@
             <div class="modal-body">
                 <div class="row justify-content-center">
                     <!-- THE OPTIONS HERE NEED TO BE LINKED TO THE EVENTS MAX GUESTS NUMBER -->
-                    <p class="text-center">Number of guests</p>
-                    <div class="col-4">
-                        <select class="form-select" aria-label="Default select example">
-                            <option selected>0</option>
-                            {%for i in range(1, 11)%}
-                            <option value="{{i}}">{{i}}</option>
-                            {%endfor%}
-
-
-                        </select>
-                    </div>
-                    <div class="d-grid col-6">
-                        <button type="button" class="btn btn-outline-success">Book</button>
+                    <div class="col-12">
+                            <div class="row mb-3 mr-4 ml-4">
+                                {{wtf.quick_form(bform,"/events/{0}/book".format(event.id))}}
+                            </div>
                     </div>
                 </div>
             </div>
@@ -180,14 +185,8 @@
     </div>
 </div>
 
-</div>
 
 <!-- End form area -->
-
-
-
-
-
 </html>
 
 {% endblock %}

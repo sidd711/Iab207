@@ -94,4 +94,8 @@ class UpdateEvent(FlaskForm):
     description_header = StringField(
         "Description Header", validators=[InputRequired()])
 
-    submit = SubmitField("Create Event")
+    submit = SubmitField("Update Event")
+
+class BookEvent(FlaskForm):
+    attending = IntegerField("How many bookings", validators=[InputRequired()])
+    submit = SubmitField("Create Booking")

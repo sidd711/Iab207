@@ -78,6 +78,8 @@ class Booking(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     # It is helpful for the booking to feature the event date
     event_date = db.Column(db.Integer, db.ForeignKey('events.startdate'))
+    # A booking needs a number of guests attending
+    attending = db.Column(db.Integer, nullable=False)
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)

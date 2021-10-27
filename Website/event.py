@@ -1,7 +1,7 @@
 from . import db
 import os
 from werkzeug.utils import redirect, secure_filename
-from .forms import CreateEvent, CommentForm, UpdateEvent
+from .forms import BookEvent, CreateEvent, CommentForm, UpdateEvent, BookEvent
 from .models import Booking, Event, Comment, User
 from flask import Blueprint, render_template, flash, url_for, request
 from flask_login import login_required, current_user
@@ -11,8 +11,6 @@ from datetime import date, time
 bp = Blueprint('event', __name__, url_prefix='/events')
 
 # Route for event creation
-
-
 @bp.route('/create', methods=["GET", "POST"])
 @login_required
 def create():
@@ -63,29 +61,24 @@ def check_upload_file(form):
         return db_upload_path
 
 # Route to show event details
-
-
 @bp.route('/<id>', methods=["GET", "POST"])
 def show(id):
     cform = CommentForm()
+    bform = BookEvent()
     # create an event item accociated with the event id which is collected from the link
     event = Event.query.filter_by(id=id).first()
     event_user = User.query.filter_by(id=event.user).first()
     event_owner = event_user.name
-    # create a new variable that contains the event comments -is this a list? uncertain print it
-    event_comments = event.comments
-    return render_template('event/show.html', event=event, form=cform, event_owner=event_owner, comment_no=5)
+    return render_template('event/show.html', event=event, form=cform, bform=bform, event_owner=event_owner)
+
 
 # Route for users to leave comments
-
-
-@bp.route('/<event>/comment', methods=['GET', 'POST'])
-def comment(event):
+@bp.route('/<id>/comment', methods=['GET', 'POST'])
+@login_required
+def comment(id):
     form = CommentForm()
-    # get a list of users to use for name retrieval
-    Users = User.query.all()
     # get the destination object associated to the page and the comment
-    event_obj = Event.query.filter_by(id=event).first()
+    event_obj = Event.query.filter_by(id=id).first()
     if form.validate_on_submit():
         # read the comment from the form
         comment = Comment(text=form.text.data,
@@ -99,7 +92,40 @@ def comment(event):
         # flash('Your comment has been added', 'success')
         print('Comment added sucessfully')
     # using redirect sends a GET request to destination.show
-    return redirect(url_for('event.show', id=event))
+    return redirect(url_for('event.show', id=id))
+
+
+# Route to provide booking functionality
+@bp.route('/<id>/book', methods=['GET', 'POST'])
+@login_required
+def book(id):
+    form = BookEvent()
+    # get the destination object associated to the page and the booking
+    event_obj = Event.query.filter_by(id=id).first()
+    if form.validate_on_submit():
+        # add funtionality here to update event max_guests number based on form number input
+        # if the form number is greated then the number avaiable flash() message and redirect
+        remaining_bookings = event_obj.maxguests
+        new_bookings = form.attending.data
+        if new_bookings > remaining_bookings:
+            flash("Not enough spots.")
+            return redirect(url_for('event.show', id=id))
+        else:
+        # read the booking from the form (only info it needs really should be user and number for booking, rest is foreign keys)
+            booking = Booking(event_id=event_obj.id,
+            user=current_user.name,
+            attending = new_bookings,
+            event_date = event_obj.startdate)
+            db.session.add(booking)
+            event_obj.maxguests -= new_bookings
+            db.session.commit()
+            # flashing a message which needs to be handled by the html
+            # flash('Your comment has been added', 'success')
+            print('Booking added sucessfully')
+            print(event_obj.maxguests)
+            flash("Booking successfull. Booking ID: " +str(booking.id) + ". View in NavBar > Events > Booked Events.")
+    # using redirect sends a GET request to destination.show
+    return redirect(url_for('event.show', id=id))
 
 
 # Route to view users owned events
@@ -117,9 +143,8 @@ def mybookins():
     bookings = Booking.query.filter_by(user=current_user.id).all()
     return render_template('event/bookedevents.html', bookings=bookings)
 
+
 # Route to provide update event functionality
-
-
 @bp.route('/<id>/update', methods=['GET', 'POST'])
 @login_required
 def update(id):
@@ -188,8 +213,6 @@ def create_date(date_string):
     return newdate
 
 # method that takes a string of a time and converts it into new time object (needed for the database to re-accept them)
-
-
 def create_time(time_string):
     hourint = int(time_string[0:2])
     minuteint = int(time_string[3:5])
@@ -198,9 +221,8 @@ def create_time(time_string):
     print(newtime)
     return newtime
 
+
 # Route to provide event deletion functionality
-
-
 @bp.route('/<id>/delete', methods=['GET', 'POST'])
 @login_required
 def delete(id):
@@ -210,3 +232,4 @@ def delete(id):
     print('Event deleted successfully')
     flash("Event deleted successfully")
     return redirect(url_for('event.myevents'))
+
