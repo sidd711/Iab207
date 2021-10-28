@@ -15,7 +15,6 @@ class User(db.Model, UserMixin):
     contact_no = db.Column(db.String(25), nullable=False)
     image = db.Column(
         db.String(400), default="Website\\static\\images\\user_imgs\\profile.png")
-
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='users')
     bookings = db.relationship('Booking', backref='users')
@@ -58,7 +57,7 @@ class Comment(db.Model):
     text = db.Column(db.String(400))
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
-    user = db.Column(db.Integer, db.ForeignKey('users.name'))
+    user = db.Column(db.String, db.ForeignKey('users.name'))
 
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 
@@ -77,7 +76,7 @@ class Booking(db.Model):
     # A booking needs to be for an event
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     # It is helpful for the booking to feature the event date
-    event_date = db.Column(db.Integer, db.ForeignKey('events.startdate'))
+    # event_date = db.Column(db.Integer, db.ForeignKey('events.startdate'))
     # A booking needs a number of guests attending
     attending = db.Column(db.Integer, nullable=False)
 
