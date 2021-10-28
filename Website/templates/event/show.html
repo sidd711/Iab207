@@ -16,7 +16,7 @@
                                     {% if messages %}
                                     <!-- check if there are any messages -->
                                     <div class="row mt-3 mb-3">
-                                        <div class="col-12">
+                                        <div class="col-12 text-center">
                                             {% for message in messages %}
                                             <!--loop through the messages-->
                                             <div class="alert alert-success">{{ message }}</div>
@@ -91,15 +91,7 @@
                     </div>
                 </div>
 
-
                 <!-- Comments Section -->
-                <!-- THIS IS SLIGHTLY OFF CENTER -->
-                <!-- SOME WORK NEEDS TO BE DONE HERE -->
-                <!-- DIVISION, FORMATTING OF DATES, ADD IN NICE COMMENT HTML FROM JRS PRIOR WORK -->
-
-
-                <!-- DYNAMIC ADDITION OF SCROLL ON NO OF COMMENTS > 5 SO PAGE DOESNT GET TOO BIG -->
-                <!-- COMMENT SCROLL NEEDS SOME WORK -->
 
                 <div id="comment_container" class="container mt-3 justify-content-center">
 
@@ -108,14 +100,16 @@
                         <div class="col">
                             {{wtf.quick_form(form,"/events/{0}/comment".format(event.id))}}
                             <small id="exampleFormControlTextarea1" class="form-text text-muted">
-                                Write about the event (Max 500 words)
+                                Write about the event (Max 250 chars)
                             </small>
                         </div>
                         {% endif %}
                     </div>
+                    
                     <div class="col text-center mb-3">
                         <h3>Reviews</h3>
                     </div>
+
                     {% for comment in event.comments %}
                     <div class="comment_loop">
                         <div class="row m-2">
@@ -143,14 +137,8 @@
                 </div>
 
             </div>
-
-
         </div>
-
-
-
     </div>
-
 </div>
 
 

@@ -77,20 +77,25 @@ def show(id):
 @login_required
 def comment(id):
     form = CommentForm()
+    
     # get the destination object associated to the page and the comment
     event_obj = Event.query.filter_by(id=id).first()
     if form.validate_on_submit():
         # read the comment from the form
-        comment = Comment(text=form.text.data,
-                          event_id=event_obj.id,
-                          user=current_user.name)
-        # here the back-referencing works - comment.destination is set
-        # and the link is created
-        db.session.add(comment)
-        db.session.commit()
-        # flashing a message which needs to be handled by the html
-        # flash('Your comment has been added', 'success')
-        print('Comment added sucessfully')
+        if len(form.text.data) > 250:
+            flash("Comment too long.")
+        else:
+            comment = Comment(text=form.text.data,
+                            event_id=event_obj.id,
+                            user=current_user.name)
+            # here the back-referencing works - comment.destination is set
+            # and the link is created
+
+            db.session.add(comment)
+            db.session.commit()
+            # flashing a message which needs to be handled by the html
+            flash('Your review has been added')
+            print('Comment added sucessfully')
     # using redirect sends a GET request to destination.show
     return redirect(url_for('event.show', id=id))
 
@@ -143,16 +148,11 @@ def myevents():
     return render_template('event/myevents.html', events=events)
 
 
-
-   
-
-
-
 # Route to view users event bookings
 @bp.route('/mybookings')
 @login_required
-def mybookins():
-    bookings = Booking.query.filter_by(user=current_user.id).all()
+def bookings():
+    bookings = Booking.query.filter_by(user=current_user.name).all()
     return render_template('event/bookedevents.html', bookings=bookings)
 
 

@@ -3,5 +3,38 @@
 {% block content %}
 
 <!-- This page will contain information relating to events that the user has booked -->
+<div class="container-fluid">
 
+    <div class="row justify-content-center">
+        <div class="row text-center mt-2">
+            <h3>Your Event Bookings</h3>
+        </div>
+    </div>
+<div class="row text-center justify-content-center pt-2 mb-1 mx-2">
+
+{% for booking in bookings %}
+    <!-- event booking item -->
+
+        <!-- info column-->
+        <div class="col-12 col-md-9 col-lg-7 border pt-2 d-flex flex-column justify-content-center mb-2">
+            <h3>{{booking.event_id.title}}</h3>
+            <div class="col-12">
+                <p><b>Date of Event: </b>{{booking.event_date}}</p>
+            </div>
+            <div class="col-12">
+                <p><b>Booking Date: </b>Sat 1 July 2021</p>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <p><b>Booking ID: </b>{{booking.id}}</p>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <p><b>Number Attending: </b>{{booking.attending}}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}
