@@ -35,14 +35,10 @@ def create_app():
     print(f" * Secret key: {app.secret_key}")
 
     # Create database
-    # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///musicdb.sqlite'
-    # db.init_app(app)
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///musicdb.sqlite'
+    db.init_app(app)
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:27we3@localhost/Eventsy'
     # db.init_app(app)
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://usvtpyfbrbmyzy:dd529f4bd126712b4875283705f61733dae88e4a970f34c74bd072b1133af688@ec2-34-228-154-153.compute-1.amazonaws.com:5432/d3cp5i1vhbds1p'
-    db.init_app(app)
-
-
 
     # config upload folder
     UPLOAD_FOLDER = 'static/images/event_imgs/'
