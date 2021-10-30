@@ -52,7 +52,7 @@ class CreateEvent(FlaskForm):
     image = FileField('Event Image', validators=[
         FileRequired(message='Image cannot be empty'),
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
-    type = SelectField(choices=["Mixed Genre", "Pop",
+    type = SelectField("Genre", choices=["Mixed Genre", "Pop",
                        "Rock", "Country", "Blues", "Techno", "Hip hop"])
     # status = SelectField(
     #     choices=["Upcoming", "Booked", "Cancelled", "Inactive"])
