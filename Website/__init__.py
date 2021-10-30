@@ -1,4 +1,3 @@
-import random
 from flask import Flask,render_template
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
@@ -27,17 +26,12 @@ def create_app():
     def load_user(user_id):
         return User.query.get(int(user_id))
 
-    # create a random secret key
-    newkey = random.Random()
-    key = newkey.randint(1, 100000000)
-    keystring = str(key)
-    app.secret_key = keystring
-    print(f" * Secret key: {app.secret_key}")
+    app.secret_key = 'secret_key'
 
     # Create database
     # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///musicdb.sqlite'
     # db.init_app(app)
-    app.config['DATABASE_URL'] = 'postgresql://postgres:27we3@localhost/Eventsy'
+    app.config['DATABASE_URL'] = 'postgres://usvtpyfbrbmyzy:dd529f4bd126712b4875283705f61733dae88e4a970f34c74bd072b1133af688@ec2-34-228-154-153.compute-1.amazonaws.com:5432/d3cp5i1vhbds1p'
     db.init_app(app)
 
     # config upload folder
