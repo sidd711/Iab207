@@ -69,6 +69,7 @@ class CommentForm(FlaskForm):
 
 
 class UpdateEvent(FlaskForm):
+    type_choices = [('Mixed Genre','Mixed Genre'),('Pop','Pop'),('Rock','Rock'),('Country','Country'),('Blues','Blues'),('Techno','Techno'),('Hip hop','Hip hop')]
     title = StringField("Title",
                         validators=[InputRequired()]
                         )
@@ -86,8 +87,7 @@ class UpdateEvent(FlaskForm):
     # image = FileField('Event Image', validators=[
     #     FileRequired(message='Image cannot be empty'),
     #     FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
-    type = SelectField(choices=["Mixed Genre", "Pop",
-                       "Rock", "Country", "Blues", "Techno", "Hip hop"])
+    type = SelectField(choices= type_choices)
     status = SelectField(
         choices=["Upcoming", "Cancelled", "Inactive"])
     description = TextAreaField("Description", validators=[InputRequired()])
