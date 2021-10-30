@@ -151,7 +151,7 @@ def myevents():
 @bp.route('/mybookings')
 @login_required
 def bookings():
-    bookings = Booking.query.filter_by(user=current_user.name).all()
+    bookings = Booking.query.filter_by(user=current_user.id).all()
     return render_template('event/bookedevents.html', bookings=bookings)
 
 
