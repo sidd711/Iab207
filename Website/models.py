@@ -36,7 +36,7 @@ class Event(db.Model):
     maxguests = db.Column(db.Integer, nullable=False)
     image = db.Column(db.String(400))
     type = db.Column(db.String(80))
-    description = db.Column(db.String(200))
+    description = db.Column(db.String(260))
     description_header = db.Column(db.String(100))
     artist = db.Column(db.String(80), nullable=False)
     # ... Create the Comments db.relationship
@@ -75,8 +75,6 @@ class Booking(db.Model):
     user = db.Column(db.Integer, db.ForeignKey('users.id'))
     # A booking needs to be for an event
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
-    # It is helpful for the booking to feature the event date
-    # event_date = db.Column(db.Integer, db.ForeignKey('events.startdate'))
     # A booking needs a number of guests attending
     attending = db.Column(db.Integer, nullable=False)
 
