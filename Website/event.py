@@ -120,7 +120,7 @@ def book(id):
             booking = Booking(event_id=event_obj.id,
                               user=current_user.name,
                               attending = new_bookings,
-                              event_date = event_obj.startdate)
+                              event_date = date.today())
             
             db.session.add(booking)
             event_obj.maxguests -= new_bookings

@@ -77,6 +77,5 @@ class Booking(db.Model):
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
     # A booking needs a number of guests attending
     attending = db.Column(db.Integer, nullable=False)
-
     def __repr__(self):
         return "<Comment: {}>".format(self.text)
