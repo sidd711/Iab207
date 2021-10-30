@@ -1,6 +1,6 @@
 from sqlalchemy.orm import backref
 from . import db
-from datetime import datetime
+from datetime import datetime, date
 from flask_login import UserMixin
 
 
@@ -69,7 +69,7 @@ class Booking(db.Model):
     __tablename__ = 'bookings'
     id = db.Column(db.Integer, primary_key=True)
     # A booking needs a date
-    created_at = db.Column(db.Date, default=datetime.now())
+    created_at = db.Column(db.Date, default=date.today)
     # add the foreign keys
     # A booking needs to be for a user
     user = db.Column(db.Integer, db.ForeignKey('users.id'))

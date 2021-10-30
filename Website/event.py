@@ -118,7 +118,7 @@ def book(id):
         else:
         # read the booking from the form (only info it needs really should be user and number for booking, rest is foreign keys)
             booking = Booking(event_id=event_obj.id,
-                              user=current_user.name,
+                              user=current_user.id,
                               attending = new_bookings)
             
             db.session.add(booking)
