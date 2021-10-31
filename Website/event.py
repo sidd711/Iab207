@@ -141,7 +141,7 @@ def book(id):
 def myevents():
     events = Event.query.filter_by(user=current_user.id).all()
     if not events:
-        flash("You currently do not have any events")
+        flash("You currently do not have any events", 'error')
         return redirect(url_for('event.create'))
 
     return render_template('event/myevents.html', events=events)
