@@ -223,7 +223,9 @@ width:100%;
 
 }
 
-
+#content-wrap {
+    padding-bottom: 2.5rem;    /* Footer height */
+  }
 
 #details_container
 {
