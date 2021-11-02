@@ -18,8 +18,8 @@ choices = ["Mixed Genre", "Pop", "Rock",
 
 @bp.route('/')
 def index():
-    events = Event.query.all()
-    return render_template('index.html', events=events, choices=choices)
+    # events = Event.query.all() events=events,
+    return render_template('index.html', choices=choices)
 
 # User account details page route
 
