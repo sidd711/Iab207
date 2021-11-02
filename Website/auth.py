@@ -53,12 +53,12 @@ def logout():
 def register():
     form = RegisterForm()
     db_file_path = check_upload_file(form)
-
+    #validate_phone('RegisterForm','contact_no')
     if form.validate_on_submit():
         print('Register form submitted')
         uname = form.user_name.data
         pwd = form.password.data
-        email = form.password.data
+        email = form.email_id.data
         contact = form.contact_no.data
 
         # generate a hashed pwd for security

@@ -1,0 +1,131 @@
+cookamungus (69):
+      folders
+      Added main
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      File reconfig
+      html
+      Basic login functionality and template reuse
+      Update base.html
+      Transferred sidds cards to jrs index
+      Fixed some size issues + worked on form.html
+      Form page and base edits
+      Form page complete
+      Event Creation form (test)
+      Begun an event page
+      Event page improvements
+      comments
+      Update show.html
+      Update auth.cpython-39.pyc
+      Minor changes
+      Minor changes
+      Event page edits
+      Update musicdb.sqlite
+      Form changes
+      forms
+      Form Changes
+      More form changes
+      Moved event creation
+      No idea
+      Comments and CSS changes
+      PLaying with blue effect on event
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      Not sure what these are
+      Event page progress
+      Added postgres sql
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      Removed music db as its no longer needed
+      Not sure what these are
+      Some database changes
+      a
+      Date functionality
+      create form working
+      Pulling changes
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      Fixed show page
+      Fixed alot of DB issues
+      Database, Form, File organisation
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      No sure
+      Show and comment changes
+      a
+      Minor bugs after pull
+      Bunch of changes that tell me nothing
+      drop down work
+      Update views.cpython-39.pyc
+      Genre select works
+      Update event functionality
+      Update event.cpython-39.pyc
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      No idea
+      Update event progress
+      Overflow
+      Cleaned up and merged CSS
+      More Cleanup
+      Delete functionality
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      Update event.cpython-39.pyc
+      Update myevents.html
+      Fixed up index
+      Book event functionality
+      Booking functionality changes
+
+demosthenesd (35):
+      Update auth.py
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      jrd_html
+      jrd_ new
+      static_images
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      link posters' view details to show.html
+      Update index.html
+      account already exist error on Register
+      check if exist
+      dynamic main page cards -jrd
+      search bar -jrd
+      description header
+      show_all
+      query
+      CSS on landing page posters
+      base icons styling
+      dynamic status bg color
+      Profile Pictures for user
+      Search bar
+      Styling to show.html
+      CSS for show.html
+      Update show.html
+      combined CSS from all htmls
+      Update Function
+      button colors for myevents.html
+      button color update
+      Button for Deleting events
+      Modal for delete
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      Updated the modal for delete events
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      removed Sign up button when logged in
+      2nd vers of removal of sign up button
+      redirect if myEvents is empty
+
+sidd711 (21):
+      Initial commit
+      Add files via upload
+      Add files via upload
+      Create models.py
+      added starting code
+      added assignment 2 stuff
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      landing page
+      Update index.html
+      model.py changes
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      event create form
+      comment section views
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      minor changes
+      Merge branch 'main' of https://github.com/sidd711/Iab207 into main
+      added functions for handling 404 and 500 errors
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      error page images
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+

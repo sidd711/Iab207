@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import TextAreaField, SubmitField, StringField, PasswordField, DateField, TimeField, FileField, SelectField, RadioField
 from wtforms.fields.core import IntegerField
-from wtforms.validators import InputRequired, Length, Email, EqualTo
+from wtforms.validators import InputRequired, Length, Email, EqualTo,NumberRange
 from flask_wtf.file import FileRequired, FileAllowed
 
 ALLOWED_FILE = {'PNG', 'JPG', 'png', 'jpg'}
@@ -18,12 +18,23 @@ class LoginForm(FlaskForm):
 
 # User register
 
-
+# def validate_phone(form, field):
+#     if len(field.data) > 12:
+#         raise ValidationError('Invalid phone number.')
+#     try:
+#         input_number = phonenumbers.parse(field.data)
+#         if not (phonenumbers.is_valid_number(input_number)):
+#             raise ValidationError('Invalid phone number.')
+#     except:
+#         input_number = phonenumbers.parse("+61"+field.data)
+#         if not (phonenumbers.is_valid_number(input_number)):
+#                     raise ValidationError('Invalid phone number.')
 class RegisterForm(FlaskForm):
     user_name = StringField("User Name", validators=[InputRequired()])
     email_id = StringField("Email Address", validators=[
                            Email("Please enter a valid email")])
-    contact_no = StringField("Contact No", validators=[InputRequired()])
+    contact_no = IntegerField("Contact No", validators=[InputRequired(),NumberRange(min=400000000, max=499999999,message='Please use national moblie format (4XXXXXXXX) ')])
+
     # linking two fields - password should be equal to data entered in confirm
     password = PasswordField("Password", validators=[InputRequired(),
                                                      EqualTo('confirm', message="Passwords should match")])
