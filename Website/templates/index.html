@@ -186,7 +186,8 @@
                           <strong>Artist: </strong>{{event.artist}}<br>
                           <strong>Venue: </strong>{{event.address}}, {{event.city}}, {{event.suburb}}<br>
                           <strong>Date: </strong>{{event.startdate}}<br>
-                          <strong>Genre: </strong>{{event.type}}<br>
+                          <strong>Artist: </strong>{{event.genre}}<br>
+                          <strong>Description: </strong>{{event.description_header}}<br>
                           <a href="{{ url_for('event.show', id=event.id) }}"
                             class="btn btn-outline-success d-flex align-items-center">View Details
                           </a>
