@@ -62,14 +62,14 @@ def register():
         pwd = form.password.data
         email = form.email_id.data
         contact = form.contact_no.data
-
+        address = form.address.data
         # generate a hashed pwd for security
         pwd_hash = generate_password_hash(pwd)
         # Create a new user object
         new_user = User(name=uname,
                         emailid=email,
                         password_hash=pwd_hash, image=db_file_path,
-                        contact_no=contact)
+                        contact_no=contact,address = address)
 
         # check if user exist in the database
         exists = db.session.query(User.name).filter_by(
