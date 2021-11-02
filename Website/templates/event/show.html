@@ -63,11 +63,19 @@
                                 <p><b>Genre: </b>{{event.type}}</p>
                             </div>
 
+                            <div class="col-12">
+                                <p><b>Remaining Spaces: </b>{{event.maxguests}}</p>
+
+                            </div>
                         </blockquote>
                         <!-- book event button-->
                         <div class="d-grid col-12">
+                            {% if event.maxguests == 0 %}
+                            <button class="btn btn-outline-danger mb-2" type="button">Booked Out</button>
+                            {% else %}
                             <button class="btn btn-outline-success mb-2" type="button" data-bs-toggle="modal"
                                 data-bs-target="#bookmodal">Book Event</button>
+                            {% endif %}
                         </div>
                     </div>
 

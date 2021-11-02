@@ -124,7 +124,7 @@ def book(id):
             db.session.add(booking)
             event_obj.maxguests -= new_bookings
             if event_obj.maxguests == 0:
-                event_obj.status = "Booked"
+                event_obj.status = "Booked Out"
             db.session.commit()
             # flashing a message which needs to be handled by the html
             # flash('Your comment has been added', 'success')

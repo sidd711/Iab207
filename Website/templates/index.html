@@ -144,7 +144,7 @@
 
           <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-success">
 
-            {% elif event.status == "Booked" %}
+            {% elif event.status == "Booked Out" %}
             <span class="position-absolute top-0 start-10 translate-middle badge rounded-pill bg-info">
 
               {% elif event.status == "Cancelled" %}
@@ -187,7 +187,6 @@
                           <strong>Venue: </strong>{{event.address}}, {{event.city}}, {{event.suburb}}<br>
                           <strong>Date: </strong>{{event.startdate}}<br>
                           <strong>Genre: </strong>{{event.type}}<br>
-                          <strong>Places Remaining:</strong>{{event.maxguests}}<br>
                           <a href="{{ url_for('event.show', id=event.id) }}"
                             class="btn btn-outline-success d-flex align-items-center">View Details
                           </a>
