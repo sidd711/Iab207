@@ -13,7 +13,7 @@ class User(db.Model, UserMixin):
     # the storage should be at least 255 chars long
     password_hash = db.Column(db.String(255), nullable=False)
     contact_no = db.Column(db.String(25), nullable=False)
-    
+    address = db.Column(db.String, nullable=False)
     image = db.Column(db.String(400))
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='users')
