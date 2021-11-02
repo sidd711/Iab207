@@ -170,7 +170,6 @@ def update(id):
     form.address.data = event.address
     form.city.data = event.city
     form.suburb.data = event.suburb
-    form.maxguests.data = event.maxguests
     form.type.data = event.type
     form.status.data = event.status
     form.description.data = event.description
@@ -198,7 +197,6 @@ def update(id):
             event.address = request.form["address"]
             event.city = request.form["city"]
             event.suburb = request.form["city"]
-            event.maxguests = request.form["maxguests"]
             event.type = request.form["type"]
             event.status = request.form["status"]
             event.description = request.form["description"]

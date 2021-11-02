@@ -93,7 +93,6 @@ class UpdateEvent(FlaskForm):
     suburb = StringField("Suburb", validators=[InputRequired()])
     city = StringField("City", validators=[InputRequired()])
     artist = StringField("City", validators=[InputRequired()])
-    maxguests = IntegerField("Max Guests", validators=[InputRequired()])
     # image = FileField('Event Image', validators=[
     #     FileRequired(message='Image cannot be empty'),
     #     FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
