@@ -171,7 +171,7 @@ def update(id):
     form.city.data = event.city
     form.suburb.data = event.suburb
     form.type.data = event.type
-    form.maxguest.data = event.maxguests
+    form.maxguests.data = event.maxguests
     form.status.data = event.status
     form.description.data = event.description
     form.artist.data = event.artist
