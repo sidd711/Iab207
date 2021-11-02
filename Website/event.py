@@ -199,7 +199,7 @@ def update(id):
             event.city = request.form["city"]
             event.suburb = request.form["city"]
             event.type = request.form["type"]
-            if event.maxguest == 0:
+            if event.maxguests == 0:
                 event.status = "Booked Out"
             else:
                 event.status = request.form["status"]
