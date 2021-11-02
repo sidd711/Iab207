@@ -81,7 +81,6 @@
 
         {% if current_user.is_authenticated %}
         <div class="d-grid gap-3 d-lg-flex justify-content-md-end">
-          <img src="../{{current_user.image}}" alt="Image not found" class="rounded-circle nav_pic" />
           <button class="btn btn-success me-md-2" onclick="window.location.href='/logout'" type="button">Logout</button>
         </div>
         {% else %}
