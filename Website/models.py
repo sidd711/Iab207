@@ -56,7 +56,7 @@ class Comment(db.Model):
     text = db.Column(db.String(400))
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
-    user = db.Column(db.String, db.ForeignKey('users.name'))
+    user = db.Column(db.Integer, db.ForeignKey('users.id'))
 
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
 

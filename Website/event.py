@@ -87,7 +87,7 @@ def comment(id):
         else:
             comment = Comment(text=form.text.data,
                             event_id=event_obj.id,
-                            user=current_user.name)
+                            user=current_user.id)
             # here the back-referencing works - comment.destination is set
             # and the link is created
 

@@ -53,6 +53,8 @@ def logout():
 def register():
     form = RegisterForm()
     db_file_path = check_upload_file(form)
+    if (db_file_path == None):
+        db_file_path = r"static/images/event_imgs/profile.png"
     #validate_phone('RegisterForm','contact_no')
     if form.validate_on_submit():
         print('Register form submitted')
