@@ -34,7 +34,7 @@ def create_app():
     # db.init_app(app)
 
     # Code here is for use when code it deployed via heroku
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://usvtpyfbrbmyzy:dd529f4bd126712b4875283705f61733dae88e4a970f34c74bd072b1133af688@ec2-34-228-154-153.compute-1.amazonaws.com:5432/d3cp5i1vhbds1p'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgres://ziquitrkiyrdfk:f465851fb9c91931b88fb167c72696e560970719cd8149fd9bbc23e0985978c6@ec2-18-213-179-70.compute-1.amazonaws.com:5432/dcnnl0tufk3et5'
     db.init_app(app)
 
     # config upload folder
