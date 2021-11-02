@@ -90,7 +90,6 @@ class UpdateEvent(FlaskForm):
     starttime = TimeField("Start Time", validators=[InputRequired()])
     endtime = TimeField("End Time", validators=[InputRequired()])
     address = StringField("Address", validators=[InputRequired()])
-    maxguests = IntegerField("Max Guests", validators=[InputRequired()])
     suburb = StringField("Suburb", validators=[InputRequired()])
     city = StringField("City", validators=[InputRequired()])
     artist = StringField("City", validators=[InputRequired()])
