@@ -1,4 +1,4 @@
-cookamungus (69):
+cookamungus (116):
       folders
       Added main
       Merge branch 'main' of https://github.com/sidd711/Iab207 into main
@@ -68,8 +68,55 @@ cookamungus (69):
       Fixed up index
       Book event functionality
       Booking functionality changes
+      Bookings update
+      a
+      a
+      images and some events for testing
+      removed unused images
+      Added heroku files
+      Postgre
+      change of db
+      Update __init__.py
+      postgre
+      Update __init__.py
+      Update __init__.cpython-39.pyc
+      Update models.cpython-39.pyc
+      db stuff
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      Postgres
+      Update __init__.py
+      Update __init__.py
+      Update forms.py
+      Postgres BS FML
+      Postgre issues with form
+      postgres
+      Booking functionality changes
+      Postgres database debugging
+      postgre fixing
+      Postgre site updates
+      Postgre form issues
+      Fixed footer bug
+      bug fix
+      footer fix
+      Event
+      database
+      changes
+      New database
+      New db
+      Event page changes
+      Updated index page
+      Update funtionality changes
+      Update functionality
+      Update event.py
+      Update event.py
+      s
+      update functionality
+      updapte
+      user
+      postgre
+      small format change
 
-demosthenesd (35):
+demosthenesd (60):
       Update auth.py
       Merge branch 'main' of https://github.com/sidd711/Iab207 into main
       jrd_html
@@ -105,8 +152,33 @@ demosthenesd (35):
       removed Sign up button when logged in
       2nd vers of removal of sign up button
       redirect if myEvents is empty
+      adding maps to show.html
+      sample
+      update sample
+      Update details.html
+      Update details.html
+      Update details.html
+      Update details.html
+      Update details.html
+      css & details.html update
+      Update custom.css
+      footer update
+      Update event.py
+      Update event.py
+      Update custom.css
+      Update index.html
+      Update custom.css
+      Update index.html
+      Update index.html
+      Update myevents.html
+      <br> to my events
+      Update myevents.html
+      pushed footer using <br>
+      Update details.html
+      Merge branch 'main' of https://github.com/sidd711/Iab207
+      address in models user
 
-sidd711 (21):
+sidd711 (31):
       Initial commit
       Add files via upload
       Add files via upload
@@ -128,4 +200,14 @@ sidd711 (21):
       Merge branch 'main' of https://github.com/sidd711/Iab207
       error page images
       Merge branch 'main' of https://github.com/sidd711/Iab207
+      fixed mobile numbers
+      fixed user image at comment
+      added users profile pic in nav bar
+      commit
+      updated site
+      commit
+      added new thing
+      commit 2
+      commit 4
+      added address
 
