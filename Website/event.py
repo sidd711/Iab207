@@ -198,7 +198,10 @@ def update(id):
             event.city = request.form["city"]
             event.suburb = request.form["city"]
             event.type = request.form["type"]
-            event.status = request.form["status"]
+            if event.maxguest == 0:
+                event.status = "Booked Out"
+            else:
+                event.status = request.form["status"]
             event.description = request.form["description"]
             event.artist = request.form["artist"]
             event.description_header = request.form["description_header"]

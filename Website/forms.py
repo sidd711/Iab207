@@ -98,7 +98,7 @@ class UpdateEvent(FlaskForm):
     #     FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     type = SelectField(choices= [('Mixed Genre','Mixed Genre'),('Pop','Pop'),('Rock','Rock'),('Country','Country'),('Blues','Blues'),('Techno','Techno'),('Hip hop','Hip hop')])
     status = SelectField(
-        choices=[("Upcoming", "Upcoming"), ("Cancelled", "Cancelled"), ("Inactive", "Inactive")])
+        choices=[("Upcoming", "Upcoming"), ("Cancelled", "Cancelled"), ("Inactive", "Inactive"), ("Booked Out", "Booked Out")])
     description = TextAreaField("Description", validators=[InputRequired()])
     description_header = StringField(
         "Description Header", validators=[InputRequired()])
