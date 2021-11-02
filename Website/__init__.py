@@ -58,4 +58,5 @@ def create_app():
     @app.errorhandler(500)
     def handle_500(err):
         return render_template('500.html'), 500
+    
     return app

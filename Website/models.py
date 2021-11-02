@@ -14,6 +14,7 @@ class User(db.Model, UserMixin):
     password_hash = db.Column(db.String(255), nullable=False)
     contact_no = db.Column(db.String(25), nullable=False)
     image = db.Column(db.String(400))
+    address = db.Column(db.String(255), nullable=False)
     # relation to call user.comments and comment.created_by
     comments = db.relationship('Comment', backref='users')
     bookings = db.relationship('Booking', backref='users')
@@ -57,8 +58,8 @@ class Comment(db.Model):
     created_at = db.Column(db.Date, default=datetime.now())
     # add the foreign keys
     user = db.Column(db.Integer, db.ForeignKey('users.id'))
-
     event_id = db.Column(db.Integer, db.ForeignKey('events.id'))
+    
 
     def __repr__(self):
         return "<Comment: {}>".format(self.text)
