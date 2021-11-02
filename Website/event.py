@@ -235,6 +235,10 @@ def create_time(time_string):
 @bp.route('/<id>/delete', methods=['GET', 'POST'])
 @login_required
 def delete(id):
+    # delete the bookings accociated with the event or we get key problems
+    bookings = Booking.query.filter_by(event_id=id).all()
+    for booking in bookings:
+        db.session.delete(booking)
     event = Event.query.filter_by(id=id).first()
     db.session.delete(event)
     db.session.commit()
