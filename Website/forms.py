@@ -6,8 +6,7 @@ from flask_wtf.file import FileRequired, FileAllowed
 
 ALLOWED_FILE = {'PNG', 'JPG', 'png', 'jpg'}
 
-# User login
-
+# Code containing form fields with types and requirements
 
 class LoginForm(FlaskForm):
     user_name = StringField("User Name", validators=[
@@ -16,19 +15,6 @@ class LoginForm(FlaskForm):
                              InputRequired('Enter user password')])
     submit = SubmitField("Login")
 
-# User register
-
-# def validate_phone(form, field):
-#     if len(field.data) > 12:
-#         raise ValidationError('Invalid phone number.')
-#     try:
-#         input_number = phonenumbers.parse(field.data)
-#         if not (phonenumbers.is_valid_number(input_number)):
-#             raise ValidationError('Invalid phone number.')
-#     except:
-#         input_number = phonenumbers.parse("+61"+field.data)
-#         if not (phonenumbers.is_valid_number(input_number)):
-#                     raise ValidationError('Invalid phone number.')
 class RegisterForm(FlaskForm):
     user_name = StringField("User Name", validators=[InputRequired()])
     email_id = StringField("Email Address", validators=[
@@ -65,8 +51,6 @@ class CreateEvent(FlaskForm):
         FileAllowed(ALLOWED_FILE, message='Only supports png,jpg,JPG,PNG')])
     type = SelectField("Genre", choices=[("Mixed Genre","Mixed Genre"), ("Pop", "Pop"),
                        ("Rock", "Rock"), ("Country", "Country"), ("Blues", "Blues"), ("Techno", "Techno"), ("Hip hop", "Hip hop")])
-    # status = SelectField(
-    #     choices=["Upcoming", "Booked", "Cancelled", "Inactive"])
     description = TextAreaField("Description", validators=[InputRequired()])
     description_header = StringField(
         "Description Header", validators=[InputRequired()])

@@ -3,6 +3,7 @@ from . import db
 from datetime import datetime, date
 from flask_login import UserMixin
 
+#
 
 class User(db.Model, UserMixin):
     __tablename__ = 'users'  # good practice to specify table name
@@ -32,7 +33,6 @@ class Event(db.Model):
     address = db.Column(db.String, nullable=False)
     city = db.Column(db.String(80))
     suburb = db.Column(db.String(80))
-    # wanna figure out how to max this
     maxguests = db.Column(db.Integer, nullable=False)
     image = db.Column(db.String(400))
     type = db.Column(db.String(80))
