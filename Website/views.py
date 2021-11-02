@@ -7,6 +7,8 @@ from .forms import CreateEvent
 from .models import Event, User
 from flask_login import login_required, current_user
 from .models import Event
+from sqlalchemy import func
+import math
 
 bp = Blueprint('main', __name__)
 
