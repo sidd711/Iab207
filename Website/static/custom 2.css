@@ -1,0 +1,256 @@
+/* -------------------- */
+
+/* Jumbotron */
+
+.jumbotron-heading{
+    color:green;
+    font-family:serif;
+    font-size: 8rem;
+}
+
+/* end jumbo */
+
+/* -------------------- */
+
+/* NAVBAR */
+
+/* Logo */
+
+.logo{
+    height: 50px;
+    width: 50px;
+}
+
+/* end logo */
+  
+/* END NAVBAR */
+
+/* -------------------- */
+
+/* MAIN */
+
+/* Cards*/
+
+.card-content{
+    align-content: center;
+}
+
+.card-image{
+    object-fit: cover;
+    max-width: 85%;
+    min-width: 85%;
+    width: auto;
+    height: auto;
+    min-height: 400px;
+    max-height: 400px;
+    opacity: 0.9;
+}
+
+.card-image:hover{
+    transform: scale(1.1);
+    opacity: 1.0;
+}
+  
+/* end card */
+
+/* carousel */
+
+.bg-overlay{
+
+    position: absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    top:0;
+    
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+
+}
+
+.carousel-container{
+    position:absolute;
+    bottom:0;
+    left:0;
+    right:0;
+    padding-bottom: 30px;
+}
+
+.carousel-item {
+  height: 35rem;
+  background: #777;
+  color: white;
+}
+
+/* carousel images */
+
+.bg-overlay.bg_img_1{
+  background-image:url(../static/images/mic.jpg);
+}
+
+.bg-overlay.bg_img_2{
+    background-image:url(../static/images/party.jpg);
+}
+
+.bg-overlay.bg_img_3{
+    background-image:url(../static/images/perform.jpg); 
+}
+
+/* end carousel */
+
+/* END INDEX */
+
+/* -------------------- */
+
+
+/* Hide scrollbar */
+
+/* this is for the event viewing page - hides the ugly additional scrollbar that appears in order to scroll the event container */
+.noscroll::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+/* -------------------- */
+
+/* show.html */
+
+.bg_white{
+    background-color: rgba(255, 255, 255, 0.836);
+}
+
+.events_row{
+    border-top-left-radius: 15px;
+}
+
+.event_img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: top;
+    max-height: 500px;
+    max-width: 500px;
+}
+
+.prof_pic{
+   width:65px;
+}
+
+/* -------------------- */
+
+/* form.html */
+
+.generalInfoHeading{
+    font-family:Impact;
+    color:cornflowerblue;
+}
+
+/* Images applied here will alter the backround of the forms */
+
+/* Login, register */
+.auth_form{
+    height: 100vh;
+    background-image: url('../static/images/party.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+/* Create event, update event */
+.event_form{
+    height: 100vh;
+    background-image: url('../static/images/artist.jpg');
+    background-size: cover; 
+    background-repeat: no-repeat;
+}
+
+.login_form{
+    background-color: rgba(255, 255, 255, 0.836);
+}
+
+.scroll{
+    overflow-y: scroll;
+}
+
+.myform{
+    border-radius: 5px;
+    border-width: 1px;
+}
+
+/* Had to do some funky stuff to edit the file select button */
+input[type=file]::file-selector-button {
+    border: 1px solid #838383;
+    padding: .2em .4em;
+    border-radius: .2em;
+    background-color: #b7b7b900;
+    transition: 0.5s;
+}
+
+input[type=file]::file-selector-button:hover {
+    color: white;
+    background-color: #838383;
+}
+
+.form-control.description_header{
+    height:60px;
+}
+
+.form-control.description{
+    height: 120px;
+}
+
+.comment_loop{
+   max-height: 300px;
+}
+
+#comment_container.container{
+  overflow-y: scroll;
+}
+
+
+.form-label{
+    float:left;
+}
+/* end form */
+
+/* -------------------- */
+
+/* Footer */
+
+footer{
+    background:#222;
+}
+
+.footicons i {
+    color:rgb(113, 202, 113);
+    font-size: 40px;
+}
+
+/* end foot */
+
+/* -------------------- */
+
+/* show.html */
+
+/* Avoid long unbroken comment strings from overflowing */
+.word-break{
+    word-wrap: break-word;
+}
+
+/* Blur background image */
+#parent_div{
+    position: relative;
+}
+  
+#background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    filter: blur(3px);
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* end show.html */

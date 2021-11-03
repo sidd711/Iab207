@@ -22,7 +22,7 @@ class RegisterForm(FlaskForm):
     contact_no = IntegerField("Contact No", validators=[InputRequired(),NumberRange(min=400000000, max=499999999,message='Please use national moblie format (4XXXXXXXX) ')])
     address = StringField(" Address", validators=[InputRequired()])
     # linking two fields - password should be equal to data entered in confirm
-    password = PasswordField("Password", validators=[InputRequired(),
+    password = PasswordField("Password", validators=[InputRequired(),Length(min=4, max=20),
                                                      EqualTo('confirm', message="Passwords should match")])
     confirm = PasswordField("Confirm Password")
     image = FileField('Profile Picture', validators=[
