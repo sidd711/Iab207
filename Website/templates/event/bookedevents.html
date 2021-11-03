@@ -15,7 +15,7 @@
 
 
         {% if bookings %}
-       
+
         {% for booking in bookings %}
         <!-- event booking item -->
 
@@ -39,14 +39,14 @@
                 </div>
             </div>
         </div>
-      
+
         {% endfor %}
         {% else %}
         <h2 class="display-5 text-muted">You currently do not have any Event bookings</h2>
-        <a href="{{url_for('main.index')}}"><div class="col-12 col-md-9 col-lg-7 pt-3 d-flex flex-column justify-content-center mb-2">
-            <button class="btn-lg btn-light btn-outline-success mb-2" type="button"
-           >Go Back</button></a>
-        </div>
+        <a href="{{url_for('main.index')}}">
+            <button class="btn-lg btn-light btn-outline-success mb-2" type="button">Go Back</button>
+        </a>
+
         {%endif %}
     </div>
 </div>
