@@ -44,7 +44,7 @@ class Event(db.Model):
     comments = db.relationship('Comment', backref='events')
     # add a fk to tie the currently logged in user to the even
     user = db.Column(db.Integer, db.ForeignKey('users.id'))
-
+    booking = db.relationship('Booking', backref='events')
     name = db.relationship('User', backref='events')
 
     def __repr__(self):  # string print method
