@@ -234,10 +234,9 @@ width:100%;
 
 .details_container
 {
-    min-height: 70vh;
-    min-height: -webkit-calc(100vh - 197px);
-    min-height: -moz-calc(100vh - 197px);
-    min-height: calc(100vh - 197px);
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
     
 }
 
@@ -253,6 +252,7 @@ width:100%;
 footer{
     background:#222;
     bottom: 0;
+    margin-top: auto;
 }
 
 .footicons i {
